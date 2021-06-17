@@ -1,0 +1,31 @@
+{
+  "name": "my-gatsby-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "My Gatsby Site",
+  "author": "Ryann Al-lahiq",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^3.6.2",
+    "gatsby-plugin-image": "^1.7.1",
+    "gatsby-plugin-react-helmet": "^4.7.1",
+    "gatsby-plugin-sass": "^4.7.1",
+    "gatsby-plugin-sharp": "^3.7.1",
+    "gatsby-plugin-sitemap": "^4.3.1",
+    "gatsby-source-filesystem": "^3.7.1",
+    "gatsby-transformer-sharp": "^3.7.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "sass": "^1.35.1"
+  }
+}
