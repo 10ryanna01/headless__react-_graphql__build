@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@900&display=swap');
+body{
+   border: 3px solid red;
+}
+
+
+
+.copy{
+
+    line-height:1;
+
+    &__page--title {
+
+        font-size: 2.5rem;
+        
+    }
+
+    &__page--subtitle {
+
+        font-size: 1.5rem;
+        
+    }
+
+}
+
+
+.background{
+
+    &__dark{
+background: grey;
+        *{
+            color: #fff;
+        }
+    }
+    &__light{
+        background: pink;
+        *{
+            color: #000;
+        }
+    }
+}
+ 
+
+.openme{
+    opacity: 1;
+    max-height: 500;
+    height: auto;
+    transition: opacity 0.5 s ease-in-out;
+  background: grey;
+
+}
+.closeme{
+    opacity: 0;
+    max-height: 0;
+    height: 0;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden;
+    background: #d5d5d5;
+
+}
+
+
+.copy{
+    font-family: 'Encode Sans SC', sans-serif;
+    &__highlight{
+        font-family: 'Encode Sans SC', sans-serif;
+        background: yellow;
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        margin-top: 0;
+        display: inline-block;
+        
+    }
+
+    &__cat{
+        color: lime;
+        background: black;
+        text-decoration: none;
+        transform: uppercase;
+        font-weight: 400;
+        font-size: 0.8rem;
+    }
+
+}
+
+.d__grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    max-width: 600px;
+    
+    ///gatsby Link component adds this style notifer
+    a{
+    &[aria-current="page"]{
+        background: yellow ;
+
+    }
+}
+}
+ 
+
+.nav__categories{
+    display: inline-flex;
+    gap: 1.0rem;
+
+
+  
+}
