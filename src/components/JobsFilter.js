@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
-
+import Dropdown from "./Dropdown";
 
 function countJobsInYears(jobs) {
   console.log(jobs);
@@ -57,12 +57,12 @@ function countJobsInLocations(jobs) {
       return acc;
     }, {});
 
-  const sortedLocations = Object.values(counts).sort((a, b) => b.count - a.count);
+  const sortedLocations = Object.values(counts).sort(
+    (a, b) => b.count - a.count
+  );
 
   return sortedLocations;
 }
-
-
 
 export default function YearsFilter({ activeYear, activeLocation }) {
   const { jobyear, joblocation, jobs } = useStaticQuery(graphql`
@@ -100,37 +100,73 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   const locationsWithCounts = countJobsInLocations(jobs.nodes);
   const yearsWithCounts = countJobsInYears(jobs.nodes);
   console.log({ yearsWithCounts });
+
+  // drop down  =============
+
+  const [isOpen, setOpen] = useState(false);
+  const [items, setItem] = useState(joblocation);
+  const [selectedItem, setSelectedItem] = useState(activeLocation);
+
+  const toggleDropdown = () => setOpen(!isOpen);
+
+  const handleItemClick = (id) => {
+    selectedItem == id ? setSelectedItem(activeLocation) : setSelectedItem(id);
+    setOpen(!isOpen);
+  };
+
   return (
-
     <div>
-    <div>
-    <h1>this is the Years list to choose from</h1>
+      <div>
+        test dropdown
+        {/* <Dropdown   dddata={joblocation, locationsWithCounts, location }  /> */}
+      </div>
 
-    <p>
-      the active ingredient/Location would be <strong>{activeLocation}</strong>
-    </p>
+      <div>
+        <h1>this is the Years list to choose from</h1>
 
-    <div className="d__grid">
-      <Link to="/basePage">
-        <span className="copy__cat">All Locations </span>
+        <p>
+          the active ingredient/Location would be{" "}
+          <strong>{activeLocation}</strong>
+        </p>
+         {/* start grid */}
+        <div className="d__grid">
+                <Link to="/basePage">
+                  <span className="copy__cat">All Locations </span>
 
-        <span className="copy__cat"> ( {joblocation.nodes.length} )</span>
-      </Link>
-
-      {locationsWithCounts.map((location) => (
-        <Link to={`/location/${location.name}`} key={location.id}>
-          <div className="nav__categories">
-            <span className="copy__cat">{location.name} </span>
-
-            <span className="copy__cat"> ( {location.count} )</span>
-          </div>
-        </Link>
-      ))}
-    </div>
-  </div>
+                  <span className="copy__cat"> ( {joblocation.nodes.length} )</span>
+                </Link>
 
 
-    
+              {/* start dropdown */}
+              <div className="dropdown">
+                    <div className="dropdown-header" onClick={toggleDropdown}>
+                      {selectedItem ? <span>{activeLocation}</span> : "View all Locations"}
+                    </div>
+
+                  <div className={`dropdown-body ${isOpen && "open"}`}>
+                                       
+                      <Link to="/basePage"> 
+                        <span>show me all Locations</span>
+                        <span className="copy__cat"> ( {joblocation.nodes.length} )</span>    
+                      </Link>
+
+                      {locationsWithCounts.map((location) => (
+                        <Link to={`/location/${location.name}`} key={location.id}>
+                          <div className="nav__categories">
+                            <span className="copy__cat">{location.name} </span>
+
+                            <span className="copy__cat"> ( {location.count} )</span>
+                          </div>
+                        </Link>
+                      ))}
+                  </div>
+                </div>
+                {/* close dropdown */}
+          
+        </div>
+        {/* close grid */}
+      </div>
+
       <h1>this is the Years list to choose from</h1>
 
       <p>

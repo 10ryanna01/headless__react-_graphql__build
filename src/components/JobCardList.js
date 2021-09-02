@@ -61,9 +61,14 @@ export default function JobCardList({ countAllJobs }) {
     <div>
       <i>there are {countAllJobs.length} yay in this component list </i>
 
+
+
       {countAllJobs.map((job) => (
         <SingleJobItem job={job} key={job.id} />
       ))}
+
+
+      
     </div>
   );
 }

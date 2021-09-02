@@ -2,6 +2,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const siteUrl = process.env.URL || `https://fallback.net`
 
 
 module.exports = {
@@ -10,12 +11,15 @@ module.exports = {
   siteMetadata: {
     title: "My Gatsby Site build",
     description: "another cool portfolio built in react",
+    siteUrl: "https://needstobetheproductionurl.com"
   },
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+
+    
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     { 
