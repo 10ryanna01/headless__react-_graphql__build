@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "gatsby";
 
 // =====================================
@@ -6,21 +6,34 @@ import { Link } from "gatsby";
 // single job component for use in grid and to sort job by years
 // =====================================
 function SingleJobItem({ job, data}) {
+
+
   const [showReadmore, setShowReadmore] = useState("closeme");
 
+  let outerBoundsRef = useRef(null);
   const handleonClickReadMore = () => {
     setShowReadmore(!showReadmore);
-    //     if (showReadmore === false){
-    //     setShowReadmore(true);
-    // }
-    // else {
-    //     setShowReadmore(false);
-    // }
-  };
+  }; 
+
+  const handleClickOutofBounds = e => {
+    if (!outerBoundsRef.current.contains(e.target)) {
+      setShowReadmore(showReadmore);
+    } }; 
+
+  useEffect(() => {
+    // register animations here 
+
+    //register outerclick here
+    document.addEventListener("mouseup", handleClickOutofBounds);
+    return () => document.removeEventListener("mouseup", handleClickOutofBounds);
+  }, []);
+
   
   return (
     <div> 
          
+
+         <div class="card__wrapper" ref={outerBoundsRef}>
       <p>{job.jobyear.map((year) => year.name).join(", ")}</p>
       
 
@@ -49,6 +62,7 @@ function SingleJobItem({ job, data}) {
       </button>
 
       {job.skillslearned}
+    </div>
     </div>
   );
 }

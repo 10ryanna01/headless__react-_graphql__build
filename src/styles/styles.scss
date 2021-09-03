@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@900&display=swap');
+
+ 
+
 body{
    border: 3px solid red;
    box-sizing: border-box;
+   
 
 }
 
@@ -76,12 +80,14 @@ background: grey;
     }
 
     &__cat{
-        color: lime;
-        background: black;
+        // color: lime;
+        // background: black;
         text-decoration: none;
         transform: uppercase;
         font-weight: 400;
-        font-size: 0.8rem;
+        font-size: 1rem;
+
+      
     }
 
 }
@@ -103,70 +109,29 @@ background: grey;
  
 
 .nav__categories{
-    display: inline-flex;
+    display: block;
     gap: 1.0rem;
 
+    [aria-current=page], &__item{
+        cursor: pointer;
+     @extend .copy__cat;
+     display: flex;
+     padding: 1.0rem;
+     text-align: center;
+     align-items: center;
+     justify-content: center;
+    &:hover, &:focus{
+        background: lime;
+        color: white;
+    }
 
+}
   
 }
 
-// ========================
+ 
 
-// === select ==========
-// ========================
-
-:root {
-    --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
-    --gray: #34495e;
-    --darkgray: #2c3e50;
-  }
-
-select {
-    /* Reset Select */
-    appearance: none;
-    outline: 0;
-    border: 0;
-    box-shadow: none;
-    /* Personalize */
-    flex: 1;
-    padding: 0 1em;
-    color: #fff !important;
-    background-color: var(--darkgray);
-    background-image: none;
-    cursor: pointer;
-  }
-  /* Remove IE arrow */
-  select::-ms-expand {
-    display: none;
-  }
-  /* Custom Select wrapper */
-  .select {
-    position: relative;
-    display: flex;
-    width: 20em;
-    height: 3em;
-    border-radius: .25em;
-    overflow: hidden;
-  }
-  /* Arrow */
-  .select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1em;
-    background-color: #34495e;
-    transition: .25s all ease;
-    pointer-events: none;
-  }
-  /* Transition */
-  .select:hover::after {
-    color: #f39c12;
-  }
-
-
-// ========================
-
+// ======================== 
 // === dropdown ==========
 // ========================
 
@@ -176,6 +141,11 @@ select {
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,.1);
     background-color: white;
+    font-size: 1.2rem;
+    line-height: 1;
+    position: relative;
+    height: 3.0rem;
+    overflow: hidden;
   }
   
   .dropdown-header {
@@ -184,16 +154,32 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-left: 10px solid green;
+    border-radius: 4px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    &-status{
+        font-size: 1.0rem;
+        line-height: 1.0rem;
+        font-weight: bold;
+    }
   }
   
   .dropdown-body {
     padding: 5px;
-    border-top: 1px solid #E5E8EC;
-    display: none;
+    border-top: 1px solid #E5E8EC; 
+    text-align: center; 
   }
   
   .dropdown-body.open {
     display: block;
+    
+   
+
   }
   
   .dropdown-item {
@@ -202,6 +188,7 @@ select {
   
   .dropdown-item:hover {
     cursor: pointer;
+    
   }
   
   .dropdown-item-dot {
@@ -215,6 +202,7 @@ select {
   }
   
   .icon {
+      width: 20px;
     font-size: 13px;
     color: #91A5BE;
     transform: rotate(0deg);
@@ -222,7 +210,7 @@ select {
   }
   
   .icon.open {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
   }
 
 

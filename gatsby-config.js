@@ -11,7 +11,7 @@ module.exports = {
   siteMetadata: {
     title: "My Gatsby Site build",
     description: "another cool portfolio built in react",
-    siteUrl: "https://needstobetheproductionurl.com"
+    siteUrl: "https://a.b.c.com"
   },
   plugins: [
     "gatsby-plugin-sass",
