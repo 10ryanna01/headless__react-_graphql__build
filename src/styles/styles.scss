@@ -2,10 +2,16 @@
 
  
 
+html{
+   
+    scroll-behavior: smooth;
+}
+
 body{
    border: 3px solid red;
    box-sizing: border-box;
    
+   scroll-behavior: smooth;
 
 }
 
@@ -107,12 +113,13 @@ background: grey;
 }
 }
  
-
-.nav__categories{
+ 
+.nav__categories{   
     display: block;
-    gap: 1.0rem;
-
-    [aria-current=page], &__item{
+    gap: 1.0rem; 
+ 
+     
+    [aria-current=page], &__link{
         cursor: pointer;
      @extend .copy__cat;
      display: flex;
@@ -120,12 +127,29 @@ background: grey;
      text-align: center;
      align-items: center;
      justify-content: center;
-    &:hover, &:focus{
-        background: lime;
-        color: white;
+     pointer-events: all;
+     z-index: 10;
+     border: 2px solid red;
+    
+     &:hover, &:focus {
+      background:   lime;
+      color: white;  
+     
+        }
+       
+   
     }
 
-}
+      
+    &__listitem{
+  list-style: none;
+ 
+      &:hover, &:focus{
+        background:   lime;
+        color: white;  
+
+          }
+          } 
   
 }
 
@@ -146,6 +170,7 @@ background: grey;
     position: relative;
     height: 3.0rem;
     overflow: hidden;
+
   }
   
   .dropdown-header {
@@ -156,29 +181,27 @@ background: grey;
     align-items: center;
     border-left: 10px solid green;
     border-radius: 4px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  
     user-select: none; 
     &-status{
         font-size: 1.0rem;
         line-height: 1.0rem;
         font-weight: bold;
     }
+    
   }
   
   .dropdown-body {
     padding: 5px;
     border-top: 1px solid #E5E8EC; 
     text-align: center; 
+    pointer-events: none;
+    display: block;
+    height: auto; 
   }
   
   .dropdown-body.open {
-    display: block;
-    
-   
+    display: block; 
 
   }
   
@@ -193,8 +216,7 @@ background: grey;
   
   .dropdown-item-dot {
     opacity: 0;
-    color: #91A5BE;
-    transition: all .2s ease-in-out;
+    color: #91A5BE; 
   }
   
   .dropdown-item-dot.selected {
@@ -205,8 +227,7 @@ background: grey;
       width: 20px;
     font-size: 13px;
     color: #91A5BE;
-    transform: rotate(0deg);
-    transition: all .2s ease-in-out;
+    transform: rotate(0deg); 
   }
   
   .icon.open {
@@ -214,3 +235,8 @@ background: grey;
   }
 
 
+// .toptop{
+//   position: absolute;
+//   top: 30px;
+
+// }

@@ -14,12 +14,12 @@ export default function BasePage({ data, pageContext }) {
     <>
       <div className="background__light">
         <title>Second page</title>
-        <h1>
+        <span>
           hello world this is the <i>base page</i>
-        </h1>
-        <h2>
+        </span>
+        <span>
           hello world there are {countAllJobs.length} on this <i>base page</i>
-        </h2>
+        </span>
 
         {/* <LocationsFilter activeLocation={pageContext.location} /> */}
         <YearsFilter activeYear={pageContext.year} activeLocation={pageContext.location} />

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { graphql, useStaticQuery, Link } from "gatsby";
+import { graphql, useStaticQuery, Link, navigate } from "gatsby";
 import gsap  from "gsap";
 import { Power2}  from "gsap";
-
+import scrollTo from 'gatsby-plugin-smoothscroll';
 // gsap config toggle for testing
 gsap.config({ nullTargetWarn: false }); 
+
+
 
 function countJobsInYears(jobs) {
   console.log(jobs);
@@ -106,11 +108,17 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   console.log({ yearsWithCounts });
 
 
+  
+
 
   let dropdownARef = useRef(null);
   let dropdownBRef = useRef(null);
   let refOutsideclickB = useRef(null);
   let refOutsideclickA = useRef(null);
+
+
+  const animation = useRef(null);
+
 
   let wrapperRef = useRef(null);
   let refOutsideclick = useRef(null);
@@ -128,39 +136,37 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   const [selectedItem, setSelectedItem] = useState(activeLocation)
 
      // end drop down  ====  job location =========
-  const tlA = useRef(gsap.timeline({ defaults: { ease: "Power2.inOut" } }).reverse());
-  const tlB = useRef(gsap.timeline({ defaults: { ease: "Power2.inOut" } }).reverse());
+ 
+  const tlB = useRef(gsap.timeline({ defaults: { ease: "Power2.inOut", autoAlpha: 1,  duration: 0.2 } }) );
  
     let animatedropdownB = () => {
       tlB.current.to(
         [dropdownBRef.current],
-         {
-          opacity: 1, 
-          duration: 0.2,
-          height: "auto",
-          stagger: 0.2,
-          
-        },);};
+         {  
+          height: "auto",  
+        },
+        );};
 
         let animatedropdownA = () => {
-          tlA.current.to(
-            [dropdownARef.current],
-             {
-              opacity: 1, 
-              duration: 0.2,
-              height: "auto",
-              stagger: 0.2,
-              
-            },);};
+          animation.current = gsap.timeline().to(dropdownARef.current, {
+            height: "auto",  
+            pointerEvents: "none",
+            ease: "Power3.easeInOut", 
+          });
+          
+          return () => {
+            animation.current.kill();
+          };
+        };
+
+
+           
 
  
   const handleItemClick = (id) => {
     selectedItem == id ? setSelectedItem(activeLocation) : setSelectedItem(id);
     setOpen(!isOpen); 
-  };
-
-   
- 
+  }; 
  
     // gsap info: https://greensock.com/position-parameter/
     // drop down  ====  job years =========
@@ -168,22 +174,35 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
     const toggleDropdownYears = (e) => { 
       setOpenYears(!isOpenYears);  
-    } 
-   
+      
+      scrollTo('#some-id');
+    }  
+
+ 
+    const toggleDropdownLocation = (e) => {  
+     
+      setOpen(!isOpen);  
   
+      return false
+    }   
+   
+
+
     const  handlemyExitDropdownB = (e) => {
     if (!refOutsideclickB.current.contains(e.target)) { 
+      
       setOpenYears(false); 
     } };
 
 
-    const toggleDropdownLocation = (e) => { 
-      setOpen(!isOpen);  
-    }   
-   
     const  handlemyExitDropdownA = (e) => {
     if (!refOutsideclickA.current.contains(e.target)) { 
-      setOpen(false); 
+    //  keep false to not trigger global mouse event
+ 
+      setOpen(false);  
+      // scrollTo('#some-id');
+
+    
     } };
    
  
@@ -192,9 +211,11 @@ export default function YearsFilter({ activeYear, activeLocation }) {
     ////////// ========================== 
     
     useEffect(() => {
-    document.addEventListener("mousedown", handlemyExitDropdownA); 
-    return () => {
-      document.removeEventListener("mousedown", handlemyExitDropdownA);
+    document.addEventListener("mouseup", handlemyExitDropdownA);  
+ 
+      return () => {
+        document.removeEventListener("mouseup", handlemyExitDropdownA);
+ 
     }; 
   }, 
     [isOpen]);
@@ -203,18 +224,34 @@ export default function YearsFilter({ activeYear, activeLocation }) {
       // register animations here
 
       document.addEventListener("mousedown", handlemyExitDropdownB); 
-      return () => {
-        document.removeEventListener("mousedown", handlemyExitDropdownB);
+        return () => {
+      document.removeEventListener("mousedown", handlemyExitDropdownB);
+            
       };  
     
     }, 
     [isOpenYears]);
 
 
-    useEffect(() => {  
 
-      animatedropdownA();  
-      tlA.current.reversed(!isOpen);      
+    useEffect(() => {
+    //  register animations
+    animatedropdownA();
+    if(animation.current.isActive()){
+      animation.current.restart();
+    }
+    }, []); 
+
+    useEffect(() => { 
+      if (!isOpen) {
+        animation.current.reverse();    
+      } 
+      
+     
+      else {
+        animation.current.play();
+      } 
+      // tlA.current.reversed(!isOpen);      
     }, [isOpen]);
     
 
@@ -224,10 +261,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
       tlB.current.reversed(!isOpenYears );           
     }, [isOpenYears]);
     
-
  
-  
-   
 
 
   return (
@@ -245,7 +279,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
           <strong>{activeLocation}</strong>
         </p>
          {/* start grid */}
-        <div className="d__grid">
+        <div className="d__grid   toptop">
                 <Link to="/basePage">
                   <span className="copy__cat">All Locations </span>
 
@@ -254,7 +288,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
 
               {/* start dropdown */}
-              <div className="dropdown" ref={dropdownARef}>
+              <div className="dropdown" ref={dropdownARef}  >
                     <div className="dropdown-header"  ref={refOutsideclickA} onClick={toggleDropdownLocation} >
                       {selectedItem ? <span className="dropdown-header-status">{activeLocation}</span> : "View all Locations"}
                       <svg xmlns="http://www.w3.org/2000/svg" className={`  icon ${isOpen && "open"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -262,19 +296,26 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                             </svg>
                     </div>
    
-                  <div className={`nav__categories dropdown-body ${isOpen && "open"}`}   > 
-                      <Link to="/basePage" className="nav__categories__item" > 
+                  <div className={`nav__categories   ${isOpen  }`}   > 
+              
+                      <Link  to="/basePage" className="nav__categories__link"   role="header bread crumb nav link" > 
+                      
                         <span className="copy__cat">show me all Locations</span>
                         <span className="copy__cat"> ( {joblocation.nodes.length} )</span>    
                       </Link> 
+                    
+                      
                       {locationsWithCounts.map((location) => (
-                        <Link to={`/location/${location.name}`} key={location.id} className="nav__categories__item">
-                          <div className="nav__categories">
+                    
+                        <Link  to={`/location/${location.name}`} key={location.id} className="nav__categories__link"    title={`${location.name} `}>
+                         
                             <span className="copy__cat">{location.name} </span>
 
                             <span className="copy__cat"> ( {location.count} )</span>
-                          </div>
+                          
                         </Link>
+                            
+                      
                       ))}
                   </div>
                 </div>
@@ -298,7 +339,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
 
               {/* start dropdown */}
-              <div className="dropdown" ref={dropdownBRef}>
+              <div className="dropdown" ref={dropdownBRef}   >
                     <div className="dropdown-header" ref={refOutsideclickB} onClick={toggleDropdownYears} >
                       {selectedItemYears ? <span className="dropdown-header-status">{activeYear}</span> : "View work from all years"}
                       <svg xmlns="http://www.w3.org/2000/svg" className={` icon ${isOpenYears && "open"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -306,22 +347,21 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                       </svg>
                     </div>
 
-        <div className={`nav__categories dropdown-body ${isOpenYears && "open"}`}> 
+                <div className={`nav__categories dropdown-body ${isOpenYears && "open"}`}> 
      
                       <Link to="/basePage" class="nav__categories__item"> 
                         <span className="copy__cat">show me jobs from all years</span>
                         <span className="copy__cat"> ( {jobs.nodes.length} )</span>    
                       </Link>  
-        
-        {yearsWithCounts.map((year) => (
-          <Link to={`/year/${year.name}`} key={year.id}  className="nav__categories__item"> 
-              <span className="copy__cat">{year.name} </span>
-              <span className="copy__cat"> ( {year.count} )</span>
-            
-           
-          </Link>
-        ))}
-         </div>
+                          
+                          {yearsWithCounts.map((year) => (
+                            <Link to={`/year/${year.name}`} key={year.id}  className="nav__categories__item"> 
+                                <span className="copy__cat">{year.name} </span>
+                                <span className="copy__cat"> ( {year.count} )</span> 
+                              
+                              </Link>
+                            ))}
+                  </div>
           </div>
       </div> 
     </div>
