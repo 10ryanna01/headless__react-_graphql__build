@@ -3,6 +3,7 @@ import "../styles/styles.scss";
 
 import Nav from "./Nav";
 import Footer from "./Footer";
+import PageHeader from "./Header";
 
 export default function Layout({children}) {
 
@@ -10,8 +11,9 @@ export default function Layout({children}) {
 return (
     
 <div>
-<p>hello world i am the layout component</p>
-    <Nav />
+{/* <p>hello world i am the layout component</p> */}
+    {/* <Nav /> */}
+    <PageHeader />
    {children}
     <Footer />
 </div>

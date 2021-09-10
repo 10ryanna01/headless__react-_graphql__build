@@ -118,6 +118,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
 
   const animation = useRef(null);
+  const animationB = useRef(null);
 
 
   let wrapperRef = useRef(null);
@@ -138,14 +139,21 @@ export default function YearsFilter({ activeYear, activeLocation }) {
      // end drop down  ====  job location =========
  
   const tlB = useRef(gsap.timeline({ defaults: { ease: "Power2.inOut", autoAlpha: 1,  duration: 0.2 } }) );
- 
-    let animatedropdownB = () => {
-      tlB.current.to(
-        [dropdownBRef.current],
-         {  
+  
+      let animatedropdownB = () => {
+     
+        animationB.current = gsap.timeline().to(dropdownBRef.current, {
           height: "auto",  
-        },
-        );};
+          pointerEvents: "none",
+          ease: "Power3.easeInOut", 
+        });
+        
+        return () => {
+          animationB.current.kill();
+        };
+   
+    
+    };
 
         let animatedropdownA = () => {
           animation.current = gsap.timeline().to(dropdownARef.current, {
@@ -173,20 +181,22 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
 
     const toggleDropdownYears = (e) => { 
-      setOpenYears(!isOpenYears);  
-      
-      scrollTo('#some-id');
+      setOpenYears(!isOpenYears);        
+      // scrollTo('#some-id');
+      return false
     }  
-
- 
-    const toggleDropdownLocation = (e) => {  
-     
-      setOpen(!isOpen);  
-  
+    
+    const toggleDropdownLocation = (e) => { 
+      setOpen(!isOpen);   
       return false
     }   
-   
 
+    const  handlemyExitDropdownA = (e) => {
+      if (!refOutsideclickA.current.contains(e.target)) { 
+      //  keep false to not trigger global mouse event 
+        setOpen(false);  
+        // scrollTo('#some-id');    
+      } };
 
     const  handlemyExitDropdownB = (e) => {
     if (!refOutsideclickB.current.contains(e.target)) { 
@@ -194,59 +204,50 @@ export default function YearsFilter({ activeYear, activeLocation }) {
       setOpenYears(false); 
     } };
 
-
-    const  handlemyExitDropdownA = (e) => {
-    if (!refOutsideclickA.current.contains(e.target)) { 
-    //  keep false to not trigger global mouse event
- 
-      setOpen(false);  
-      // scrollTo('#some-id');
-
-    
-    } };
    
  
     //////////  ========================= 
     ////////// effects
     ////////// ========================== 
-    
-    useEffect(() => {
-    document.addEventListener("mouseup", handlemyExitDropdownA);  
- 
-      return () => {
-        document.removeEventListener("mouseup", handlemyExitDropdownA);
- 
-    }; 
-  }, 
-    [isOpen]);
-
-    useEffect(() => {
-      // register animations here
-
-      document.addEventListener("mousedown", handlemyExitDropdownB); 
+  
+    useEffect(() => { 
+      document.addEventListener("mousedown",  handlemyExitDropdownA); 
         return () => {
-      document.removeEventListener("mousedown", handlemyExitDropdownB);
+      document.removeEventListener("mousedown", handlemyExitDropdownA);
             
       };  
     
     }, 
-    [isOpenYears]);
-
-
+    [ isOpen]); 
 
     useEffect(() => {
-    //  register animations
+      
+
+      document.addEventListener("mousedown", handlemyExitDropdownB ); 
+        return () => {
+      document.removeEventListener("mousedown", handlemyExitDropdownB );
+            
+      };  
+    
+    }, 
+    [ isOpenYears]); 
+
+    useEffect(() => {
+     
     animatedropdownA();
+  
     if(animation.current.isActive()){
       animation.current.restart();
     }
+  
+
+
     }, []); 
 
     useEffect(() => { 
       if (!isOpen) {
         animation.current.reverse();    
-      } 
-      
+      }  
      
       else {
         animation.current.play();
@@ -256,9 +257,27 @@ export default function YearsFilter({ activeYear, activeLocation }) {
     
 
     //animate dropdown B
+
+ 
+    
+    useEffect(() => { 
+      animatedropdownB();
+      if(animationB.current.isActive()){
+        animationB.current.restart();
+      }
+ 
+    }, []);
+    
     useEffect(() => {  
-      animatedropdownB();   
-      tlB.current.reversed(!isOpenYears );           
+   
+   
+      if (!isOpenYears) {
+        animationB.current.reverse();    
+      }  
+      else {
+        animationB.current.play();
+      }  
+  
     }, [isOpenYears]);
     
  
@@ -347,15 +366,15 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                       </svg>
                     </div>
 
-                <div className={`nav__categories dropdown-body ${isOpenYears && "open"}`}> 
+                <div className={`nav__categories  ${isOpenYears && "open"}`}> 
      
-                      <Link to="/basePage" class="nav__categories__item"> 
+                      <Link to="/basePage"   className="nav__categories__link"> 
                         <span className="copy__cat">show me jobs from all years</span>
                         <span className="copy__cat"> ( {jobs.nodes.length} )</span>    
                       </Link>  
                           
                           {yearsWithCounts.map((year) => (
-                            <Link to={`/year/${year.name}`} key={year.id}  className="nav__categories__item"> 
+                            <Link to={`/year/${year.name}`} key={year.id}  className="nav__categories__link"> 
                                 <span className="copy__cat">{year.name} </span>
                                 <span className="copy__cat"> ( {year.count} )</span> 
                               
