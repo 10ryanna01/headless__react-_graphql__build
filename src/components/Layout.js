@@ -14,7 +14,7 @@ return (
 {/* <p>hello world i am the layout component</p> */}
     {/* <Nav /> */}
     <PageHeader />
-   {children}
+   {children }
     <Footer />
 </div>
     );

@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 //start
 // single job component for use in grid and to sort job by years
 // =====================================
-function SingleJobItem({ job, data}) {
+function SingleJobItem({ data, job }) {
 
 
   const [showReadmore, setShowReadmore] = useState("closeme");
@@ -48,12 +48,15 @@ function SingleJobItem({ job, data}) {
       <div>
         <p>Contact name:</p>
         {job.name}
-        
+   
+
+    
       </div>
 
       <div>
         <div className={showReadmore ? "closeme" : "openme"}>
           <div>{job.skillslearned}</div>
+          
         </div>
       </div>
 
@@ -61,7 +64,11 @@ function SingleJobItem({ job, data}) {
         <strong>read more</strong>
       </button>
 
-      {job.skillslearned}
+    <h1 style={{fontSize: "1.1rem"}}>  {job.skillslearned}</h1> 
+ 
+    <p className="dudebro">{job.startmonth.map((job) => job.name)}</p> 
+    <p className="dudebro">{job.endingmonth.map((job) => job.name)}</p>
+     
     </div>
     </div>
   );

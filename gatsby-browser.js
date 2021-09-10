@@ -7,10 +7,10 @@ export function wrapPageElement({ element, props }) {
   
 }
  
-export function shouldUpdateScroll(element, { props }) {
-  window.scrollTo(0, 0)
-  const body = document.getElementsByTagName('body')[0]
-  body.scrollTop = 0
-  return false
-}
+// export function shouldUpdateScroll(element, { props }) {
+//   window.scrollTo(0, 0)
+//   const body = document.getElementsByTagName('body')[0]
+//   body.scrollTop = 0
+//   return false
+// }
 

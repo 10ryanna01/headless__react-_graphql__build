@@ -42,7 +42,13 @@ query QueryAllJobs($year: [String], $location: [String]), {
       skillslearned
       roleoverview
       namecompany
-      companyoutline
+      companyoutline 
+      startmonth {
+        name
+      }
+      endingmonth {
+        name
+      }
       slug {
         current
       }
@@ -53,7 +59,7 @@ query QueryAllJobs($year: [String], $location: [String]), {
       jobyear {
         id
         name
-      }
+      }  
     }
   }
 }
