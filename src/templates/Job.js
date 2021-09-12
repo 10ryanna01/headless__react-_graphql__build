@@ -41,6 +41,16 @@ export const query = graphql`
         name
         id
       } 
+      jobyear {
+        name
+        id
+      } 
+      startmonth {
+        name
+      }
+      endingmonth {
+        name
+      }
 
     }
   }

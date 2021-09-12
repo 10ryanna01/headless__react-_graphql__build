@@ -12,7 +12,7 @@ export default function BasePage({ data, pageContext }) {
 
   return (
     <>
-      <div className="background__light">
+      <div className="">
         <title>Second page</title>
         <span>
           hello world this is the <i>base page</i>

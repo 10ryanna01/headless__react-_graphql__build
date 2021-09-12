@@ -34,15 +34,14 @@ $copy__dark: #5c6bc0;
 html, body{
    
     scroll-behavior: smooth;
-    font-size: 1rem;
-    height: 100vh;
+    font-size: 1rem; 
     // //   background: url("https://source.unsplash.com/2000x2000/?travel,festival,beach,road");
     //   background-image: image-set( "https://source.unsplash.com/1200x1200/?travel,festival,beach,road" 1x);
     //    background-attachment: fixed;
     //   background-position: center;
     //   background-repeat: no-repeat;
     //   background-size: cover;
-  
+    box-sizing: border-box;
     overflow-y: scroll;
     overflow-y: overlay;
     font-smooth: always;
@@ -225,8 +224,14 @@ body{
     text-transform: uppercase;
     letter-spacing: 3px;
     // new
-    line-height: 1.6;
+    line-height: 1.6; 
+    overflow: hidden;
+    height: 3.0rem; 
+   
+  
   }
+
+  
 
   &__bold-subtitle {
     text-transform: uppercase;
@@ -477,13 +482,7 @@ body{
     }
   }
 }
-
-
-.dudebro{
-  color: red !important;
-}
-
-
+ 
 
 /// ====================
 //  filters
@@ -566,19 +565,30 @@ background: grey;
     opacity: 1;
     max-height: 500;
     height: auto;
-    transition: opacity 0.5 s ease-in-out;
+    // transition: opacity 0.5 s ease-in-out;
   background: grey;
 
 }
+// .closeme{
+//     opacity: 0;
+//     max-height: 0;
+//     height: 0;
+     
+//     overflow: hidden;
+//     background: #d5d5d5;
+
+// }
+
 .closeme{
-    opacity: 0;
-    max-height: 0;
-    height: 0;
-    transition: max-height 0.5s ease-out;
+   height: 0;
     overflow: hidden;
     background: #d5d5d5;
 
 }
+.doit{
+
+}
+
 
 
 .copy{
@@ -743,10 +753,564 @@ background: grey;
     transform: rotate(180deg);
   }
 
+ 
+.ticket__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 645px;
+  margin: 0 auto;
+  position: relative;
+  // gap: 9rem;
+  transform: scale(0.7) translate(0, 400px);
+  transform-origin: top;
 
-// .toptop{
-//   position: absolute;
-//   top: 30px;
+  @media (max-width: 1024px) {
+    transform: translate(0, 300px) scale(0.7);
+    padding: 0;
+    width: 100%;
+  }
 
-// }
+  @media (max-width: 480px) {
+    transform: translate(-5%, 300px) scale(0.6);
+  }
+}
 
+// =======================
+// .ticket and time line 
+// ======================
+.ticket {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border: 24px solid #263238;
+  // border: 24px solid transparent ;
+  width: 645px;
+  height: auto;
+  max-height: 100%;
+  display: grid;
+  position: relative;
+  z-index: 10;
+  grid-template-columns: 106px calc(100% - 106px);
+  box-shadow: 5px 7px 16px -1px #000000;
+  font-family: var(--font-body);
+  opacity: 1;
+  margin-bottom: 6rem;
+  user-select: none;
+  cursor: pointer;
+  // overflow: hidden;
+  transition: all ease-in-out 0.25s;
+
+  &:hover {
+    transform-origin: center;
+
+    .ticket__timeline__line {
+      border-color: #263238;
+     
+    }
+
+    .flip-this {
+      // flip and spin star
+      transition-property: rotate;
+      transition: ease-in-out 0.5s;
+      transform: rotate(-180deg);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: auto;
+    width: min-content;
+  }
+
+  //alternate stub options -- ODD - --rearange orentation for desktop
+  &:nth-of-type(odd) {
+    // initial transform/location for desktop
+    transform: translate(-51%, 0%);
+
+    @media (max-width: 1024px) {
+      transform: translate(0, 0);
+    }
+
+    // end intialtransform/location
+    .ticket-info {
+      transform: translate(-28%, 0px);
+      padding-right: 10px;
+      padding-left: 0;
+
+      @media (max-width: 1024px) {
+        transform: translate(0, 0);
+        padding-right: 0;
+        padding-left: inherit;
+      }
+    }
+
+    .ticket-sub {
+      transform: translateX(463%) rotate(180deg) perspective(1px) translateZ(0);
+      transform-origin: center;
+
+      @media (max-width: 1024px) {
+        transform: translateX(0);
+      }
+    }
+
+    .ticket-main {
+      transform: translateX(-23%);
+
+      @media (max-width: 1024px) {
+        transform: translateX(0);
+      }
+    }
+
+    .ticket-seat {
+      text-align: end;
+      transform: translate(341%, 0px) rotate(180deg);
+      backface-visibility: hidden;
+      perspective: 100px;
+
+      @media (max-width: 1024px) {
+        transform: translate(0, 0);
+        text-align: left;
+      }
+    }
+  }
+
+  //  end  alternate stub options -- ODD
+  &:nth-of-type(even) {
+    transform: translate(50.3%, 0%);
+
+    @media (max-width: 1024px) {
+      transform: translate(0, 0);
+    }
+
+    .ticket__timeline {
+      left: -30px;
+
+      @media (max-width: 1024px) {
+        left: inherit;
+      }
+    }
+  }
+
+  //  add responsive rules for both odd and even types
+  &:nth-of-type(even),
+  &:nth-of-type(odd) {
+    &:hover {
+      background: $copy__wheat;
+      // background: rgba(255,255,255,0.75);
+
+      // test demo this
+      details {
+        color: $copy__wheat;
+      }
+
+      .ticket__timeline__marker__icon {
+        transform-style: preserve-3d;
+
+        transition: ease-in-out 0.6s;
+        transform: rotate(180deg);
+        transition: all ease-in-out 0.25s;
+      }
+    }
+
+    transition: ease-in-out 0.6s;
+    transition: all ease-in-out 0.25s;
+  }
+
+  // end //alternate stub options
+  ////////////////////////////////////
+
+  ///ticket point
+  &__timeline {
+    width: 5px;
+    background: #263238;
+    height: calc(120% + 50px);
+    position: absolute;
+    right: -31px;
+    top: -40px;
+    z-index: 10;
+    opacity: 1;
+    transition: all 0.25s ease-in-out;
+
+    @media (max-width: 480px) {
+      height: 170%;
+    }
+
+    &:nth-of-type(even) {}
+
+    &__line {
+      width: 5px;
+      background: #ff006a;
+      height: 100%;
+      max-height: 120%;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    // close .ticket
+  }
+
+  &__timeline__marker {
+    width: 75px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    background: #ff006a;
+    z-index: 10;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    right: -36px;
+    top: -70px;
+    border-radius: 100%;
+    border: 3px solid white;
+    box-shadow: 5px 7px 16px -1px #000000;
+    transform: scale(0.8);
+
+    &__icon {
+      width: 70px;
+      position: relative;
+      color: gold;
+      width: 70px;
+    }
+  }
+
+  //   close ticket item
+}
+
+// =======================
+//  end  ticket and time line 
+// ======================
+
+
+// =======================
+//   .ticket-sub
+// ======================
+
+.ticket-sub {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: center;
+  padding: 10px 10px;
+  border-right: 6px dotted var(--color-bg);
+  position: relative;
+  z-index: 1;
+  transform: translateX(0%);
+
+  //   @media (max-width: 640px) {
+  //     writing-mode: horizontal-tb;
+  //     border-bottom: 6px dotted var(--color-bg);
+  //     border-top: 6px dotted var(--color-bg);
+  //     border-right:0;
+  //     // find left border and turn it off
+  //   }
+  @media (max-width: 1024px) {
+    writing-mode: horizontal-tb;
+    border-bottom: 6px dotted var(--color-bg);
+    border-top: 6px dotted var(--color-bg);
+    border-right: 0;
+    // find left border and turn it off
+  }
+
+  &:before,
+  &:after {
+    background: var(--color-bg);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: -14px;
+    right: -14px;
+  }
+
+  &:after {
+    top: unset;
+    bottom: -14px;
+  }
+
+   &__title {
+    @extend .copy__ticket__title;
+    background: var(--color-tertiary);
+    color: white; 
+    &:before,
+    &:after {
+      background: var(--color-bg);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: -18px;
+      left: -22px;
+    }
+
+    &:after {
+      top: unset;
+      bottom: -18px;
+    }
+  }
+
+  &__serial {
+    @extend .copy__ticket__regno;
+    padding: 14px 4px 14px 0;
+    text-align: center;
+
+    &:before {
+      content: "";
+      width: 2px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: calc(100% - 3px);
+      border-right: dotted 5px var(--color-bg);
+    }
+
+    &:after {
+      content: "";
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      box-shadow: inset 0 0 0 2px var(--color-secondary);
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+}
+
+
+// =======================
+//  end  .ticket-sub
+// ======================
+
+
+
+.ticket-main {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 23% 77%;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 22% 78%;
+    backface-visibility: hidden;
+  }
+}
+
+.ticket-seat {
+  display: grid;
+  grid-template-areas:
+    "suba head"
+    "subb head"
+    "subc head";
+  box-shadow: inset 0 0 0 2px var(--color-secondary);
+  z-index: 1;
+
+
+&__title {
+  grid-area: head;
+  height: auto;
+  @extend .copy__ticket__meta-title;
+  padding: 1rem 0.8rem;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  background-color: var(--color-tertiary);
+  position: relative;
+
+  border-top: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
+  z-index: 1;
+  
+
+
+}  
+
+
+
+  // close ticket seat
+}
+
+
+.ticket-seat-box{
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  text-align: center; 
+
+&__subtitle {  @extend .copy__ticket__meta-cat-title;}
+
+&__title { @extend .copy__ticket__meta-cat-desc; }
+
+&:not(:last-child) { border-bottom: 2px solid var(--color-secondary);}
+
+&:nth-of-type(1) { grid-area: suba; padding: 0.2rem;}
+
+&:nth-of-type(2) {  grid-area: subb;  padding: 0.2rem; }
+
+&:nth-of-type(3) { grid-area: subc;  padding: 0.2rem;}
+  // close ticket-seat-box
+}
+ 
+
+
+
+.ticket-info {
+  padding-left: 10px;
+  text-align: center;
+  display: grid;
+  grid-template-areas:
+    "TicketHeadliner"
+    "TicketDuration"
+    "TicketHeadlinerDetail"
+    "TicketExperiance"
+    "TicketMisc"
+    "TicketBarcode";
+  box-shadow: inset 0 0 0 2px var(--color-secondary); 
+  align-items: center;
+  align-content: start;
+  justify-items: stretch;
+ 
+  >div:not(:nth-last-child(-n + 2)) {
+    border-bottom: 2px dashed var(--color-secondary);
+  }
+
+  .ticket-info-brand {
+    grid-area: TicketHeadliner; 
+    align-self: center; 
+    border-bottom: 2px dashed var(--color-secondary);
+  }
+
+  .ticket-info-brawler {
+    grid-area: TicketDuration;
+    display: flex; 
+    width: 100%; 
+    .separator {
+      writing-mode: vertical-lr;
+      text-orientation: upright;
+      font-weight: 1000;
+      padding: 0 calc(20px - 0.8em);
+      text-align: center;
+      font-family: var(--font-heading);
+      border-left: 2px dashed var(--color-secondary);
+      border-right: 2px dashed var(--color-secondary);
+    }
+  }
+
+  .brawler {
+    width: calc(50% - 20px); 
+    align-self: center; 
+    &__subtitle{
+    display: block;
+    @extend .copy__ticket__month-subtitle;
+  }
+  &__title{
+    margin-top: -8px;
+    display: block;
+    @extend .copy__ticket__month-title;
+  }
+  }
+} 
+ 
+  .ticket-info-referee {
+  grid-area: TicketHeadlinerDetail;
+  align-self: center;
+  padding: 1rem 0.3rem;
+  &__title {
+    @extend .copy__ticket__summary-title;
+  }
+  &__subtitle{
+    @extend .copy__ticket__summary-desc;
+  }
+}
+ 
+
+.ticket-info .ticket-info-date {
+  grid-area: TicketExperiance;
+
+  background-color: var(--color-tertiary);
+  color: white;
+  // margin-top: -12px;
+  border-left: 2px solid var(--color-secondary);
+  border-right: 2px solid var(--color-secondary);
+  // height: 6vh;
+}
+
+.ticket-info { 
+  .ticket-info-date2 {
+  grid-area: TicketBarcode;
+
+ } 
+  .ticket-info-misc {
+  grid-area: TicketMisc;
+  align-self: center;
+  position: relative;
+  padding: 1rem 0;
+  @extend .copy__ticket__location;
+  strong{
+   @extend .ticket-info-referee__title;
+  }
+  }
+}
+
+// ========================
+//  start expland collapse / readmore
+// ========================
+summary::-webkit-details-marker { color: blue;}
+
+summary:focus {  outline-style: none;}
+
+summary::-webkit-details-marker {
+  color: #00acf3;
+  font-size: 125%;
+  margin-right: 2px;
+}
+
+summary:focus {
+  outline-style: none;
+}
+
+//   =========================
+//    css animation loops
+//   =========================
+
+.flip-this {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+@keyframes fluid {
+  from {
+    background-position: top;
+  }
+
+  to {
+    background-position: bottom;
+  }
+}
+
+@keyframes slideInPageBody {
+  0% {
+    background: black;
+    transform: scale(0) translate(-100%, 0);
+    transform-origin: center;
+  }
+
+  100% {
+    // transform: scale(1.0) translate(0%, 0) ;
+    transform: translate(-100%, 50%) translate(100%, -50%) scale(1);
+    background: transparent;
+    transform-origin: center;
+  }
+}
+
+.dudewinn{ 
+ overflow: hidden;
+  height: 0;
+ 
+}

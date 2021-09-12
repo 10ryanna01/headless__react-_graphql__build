@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef  } from "react";
 import { graphql, useStaticQuery, Link,   } from "gatsby";
-import gsap from "gsap";
- 
- 
- 
+import gsap from "gsap"; 
 // gsap config toggle for testing
 gsap.config({ nullTargetWarn: false });
 
