@@ -1,16 +1,13 @@
-
 @import "reset";
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Modak&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap");
 // my styles
 
-
 // ==========================
 // vars
 // ==========================
-
 
 :root {
   --color-primary: #9fa8da;
@@ -29,33 +26,31 @@ $bg__purple: #5c6bc0;
 $bg__purple__secondary: #9fa8da;
 $copy__light: #ffffff;
 $copy__dark: #5c6bc0;
+$copy__link: #ff006a;
 
-
-html, body{
-   
-    scroll-behavior: smooth;
-    font-size: 1rem; 
-    // //   background: url("https://source.unsplash.com/2000x2000/?travel,festival,beach,road");
-    //   background-image: image-set( "https://source.unsplash.com/1200x1200/?travel,festival,beach,road" 1x);
-    //    background-attachment: fixed;
-    //   background-position: center;
-    //   background-repeat: no-repeat;
-    //   background-size: cover;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-y: overlay;
-    font-smooth: always;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+html,
+body {
+  scroll-behavior: smooth;
+  font-size: 1rem;
+  // //   background: url("https://source.unsplash.com/2000x2000/?travel,festival,beach,road");
+  //   background-image: image-set( "https://source.unsplash.com/1200x1200/?travel,festival,beach,road" 1x);
+  //    background-attachment: fixed;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-y: overlay;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body{ 
-   box-sizing: border-box;
-   
-   scroll-behavior: smooth;
+body {
+  box-sizing: border-box;
 
+  scroll-behavior: smooth;
 }
-
 
 // ===================
 // custom scrollbar
@@ -84,7 +79,6 @@ body{
   border-radius: 20px;
   border: 1px solid white;
 }
-
 
 // ============================
 // Typography
@@ -224,14 +218,10 @@ body{
     text-transform: uppercase;
     letter-spacing: 3px;
     // new
-    line-height: 1.6; 
+    line-height: 1.6;
     overflow: hidden;
-    height: 3.0rem; 
-   
-  
+    height: 3rem;
   }
-
-  
 
   &__bold-subtitle {
     text-transform: uppercase;
@@ -248,10 +238,22 @@ body{
     // display: flex;
     // flex-flow: column;
     // align-items: center;
-    display: inline-block;
-    margin: 0 auto;
-    position: relative;
-    margin-bottom: 1rem;
+    display: block;
+    
+    margin: 0 auto; 
+    margin-bottom: 1rem; 
+    a {
+      
+      font-family: var(--font-misc);
+      line-height: 1.6;
+      color: $copy__wheat;
+      text-shadow: 2px 2px #000;
+      font-weight: bold;
+
+      &:hover,
+      &:focus &:active {
+      }
+    }
   }
 }
 
@@ -303,18 +305,15 @@ body{
   flex-direction: row;
 }
 
-
 // =======================
 // header
 // ======================
 
 .header__wrapper {
-  .templink{
-    color: wheat !important; 
+  .templink {
+    color: wheat !important;
     text-transform: none;
-  
-   }
-
+  }
 
   padding: 0.8rem 2rem;
   background: $bg__dark;
@@ -360,9 +359,6 @@ body{
 }
 
 .header {
-  
-
-
   &__title {
     text-align: center;
     font-size: 4rem;
@@ -482,7 +478,6 @@ body{
     }
   }
 }
- 
 
 /// ====================
 //  filters
@@ -490,7 +485,7 @@ body{
 .filter__wapper {
   @extend .utility---d-flex-row;
   gap: 1rem;
-  transition: all 0.5s ease-in-out;
+
   font-size: 1rem;
   line-height: 1;
   width: 100%;
@@ -516,244 +511,193 @@ body{
   }
 }
 
+.copy {
+  line-height: 1;
 
+  &__page--title {
+    font-size: 2.5rem;
+  }
 
-
-
-
-
-
-
-
-.copy{
-
-    line-height:1;
-
-    &__page--title {
-
-        font-size: 2.5rem;
-        
-    }
-
-    &__page--subtitle {
-
-        font-size: 1.5rem;
-        
-    }
-
+  &__page--subtitle {
+    font-size: 1.5rem;
+  }
 }
 
-
-.background{
-
-    &__dark{
-background: grey;
-        *{
-            color: #fff;
-        }
+.background {
+  &__dark {
+    background: grey;
+    * {
+      color: #fff;
     }
-    &__light{
-        background: pink;
-        *{
-            color: #000;
-        }
+  }
+  &__light {
+    background: pink;
+    * {
+      color: #000;
     }
+  }
 }
- 
 
-.openme{
-    opacity: 1;
-    max-height: 500;
-    height: auto;
-    // transition: opacity 0.5 s ease-in-out;
+.openme {
+  opacity: 1;
+  max-height: 500;
+  height: auto;
   background: grey;
-
 }
 // .closeme{
 //     opacity: 0;
 //     max-height: 0;
 //     height: 0;
-     
+
 //     overflow: hidden;
 //     background: #d5d5d5;
 
 // }
 
-.closeme{
-   height: 0;
-    overflow: hidden;
-    background: #d5d5d5;
-
+.closeme {
+  height: 0;
+  overflow: hidden;
+  background: #d5d5d5;
 }
-.doit{
+.copy {
+  font-family: "Encode Sans SC", sans-serif;
+  &__highlight {
+    font-family: "Encode Sans SC", sans-serif;
+    background: yellow;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 0;
+    display: inline-block;
+  }
 
+  &__cat {
+    // color: lime;
+    // background: black;
+    text-decoration: none;
+    transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
+  }
 }
 
+.d__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  max-width: 600px;
 
-
-.copy{
-    font-family: 'Encode Sans SC', sans-serif;
-    &__highlight{
-        font-family: 'Encode Sans SC', sans-serif;
-        background: yellow;
-        color: black;
-        font-weight: bold;
-        text-decoration: none;
-        margin-top: 0;
-        display: inline-block;
-        
+  ///gatsby Link component adds this style notifer
+  a {
+    &[aria-current="page"] {
+      background: yellow;
     }
+  }
+}
 
-    &__cat{
-        // color: lime;
-        // background: black;
-        text-decoration: none;
-        transform: uppercase;
-        font-weight: 400;
-        font-size: 1rem;
+.nav__categories {
+  display: block;
+  gap: 1rem;
 
-      
+  [aria-current="page"],
+  &__link {
+    cursor: pointer;
+    @extend .copy__cat;
+    display: flex;
+    padding: 1rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border: 2px solid red;
+
+    &:hover,
+    &:focus {
+      background: lime;
+      color: white;
     }
+  }
 
-}
+  &__listitem {
+    list-style: none;
 
-.d__grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 0 auto;
-    max-width: 600px;
-    
-    ///gatsby Link component adds this style notifer
-    a{
-    &[aria-current="page"]{
-        background: yellow ;
-
+    &:hover,
+    &:focus {
+      background: lime;
+      color: white;
     }
-}
-}
- 
- 
-.nav__categories{   
-    display: block;
-    gap: 1.0rem; 
- 
-     
-    [aria-current=page], &__link{
-        cursor: pointer;
-     @extend .copy__cat;
-     display: flex;
-     padding: 1.0rem;
-     text-align: center;
-     align-items: center;
-     justify-content: center;
-     pointer-events: all;
-     z-index: 10;
-     border: 2px solid red;
-    
-     &:hover, &:focus {
-      background:   lime;
-      color: white;  
-     
-        }
-       
-   
-    }
-
-      
-    &__listitem{
-  list-style: none;
- 
-      &:hover, &:focus{
-        background:   lime;
-        color: white;  
-
-          }
-          } 
-  
+  }
 }
 
- 
-
-// ======================== 
+// ========================
 // === dropdown ==========
 // ========================
 
-
 .dropdown {
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.1);
-    background-color: white;
-    font-size: 1.2rem;
-    line-height: 1;
-    position: relative;
-    height: 3.0rem;
-    overflow: hidden;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  font-size: 1.2rem;
+  line-height: 1;
+  position: relative;
+  height: 3rem;
+  overflow: hidden;
+}
 
-  }
-  
-  .dropdown-header {
-    padding: 15px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-left: 10px solid green;
-    border-radius: 4px;
-  
-    user-select: none; 
-    &-status{
-        font-size: 1.0rem;
-        line-height: 1.0rem;
-        font-weight: bold;
-    }
-    
-  }
-  
-  .dropdown-body {
-    padding: 5px;
-    border-top: 1px solid #E5E8EC; 
-    text-align: center; 
-    pointer-events: none;
-    display: block;
-    height: auto; 
-  }
-  
-  .dropdown-body.open {
-    display: block; 
+.dropdown-header {
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 10px solid green;
+  border-radius: 4px;
 
+  user-select: none;
+  &-status {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: bold;
   }
-  
-  .dropdown-item {
-    padding: 10px;
-  }
-  
-  .dropdown-item:hover {
-    cursor: pointer;
-    
-  }
-  
-  .dropdown-item-dot {
-    opacity: 0;
-    color: #91A5BE; 
-  }
-  
-  .dropdown-item-dot.selected {
-    opacity: 1;
-  }
-  
-  .icon {
-      width: 20px;
-    font-size: 13px;
-    color: #91A5BE;
-    transform: rotate(0deg); 
-  }
-  
-  .icon.open {
-    transform: rotate(180deg);
-  }
+}
 
- 
+.dropdown-body {
+  padding: 5px;
+  border-top: 1px solid #e5e8ec;
+  text-align: center;
+  pointer-events: none;
+  display: block;
+  height: auto;
+}
+
+.dropdown-body.open {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+}
+
+.dropdown-item-dot.selected {
+  opacity: 1;
+}
+
+.icon {
+  width: 20px;
+  font-size: 13px;
+  color: #91a5be;
+  transform: rotate(0deg);
+}
+
+.icon.open {
+  transform: rotate(180deg);
+}
+
 .ticket__wrapper {
   display: flex;
   flex-direction: column;
@@ -762,7 +706,6 @@ background: grey;
   width: 645px;
   margin: 0 auto;
   position: relative;
-  // gap: 9rem;
   transform: scale(0.7) translate(0, 400px);
   transform-origin: top;
 
@@ -778,7 +721,7 @@ background: grey;
 }
 
 // =======================
-// .ticket and time line 
+// .ticket and time line
 // ======================
 .ticket {
   background-color: var(--color-primary);
@@ -798,15 +741,12 @@ background: grey;
   margin-bottom: 6rem;
   user-select: none;
   cursor: pointer;
-  // overflow: hidden;
-  transition: all ease-in-out 0.25s;
 
   &:hover {
     transform-origin: center;
-
+    background: $copy__wheat;
     .ticket__timeline__line {
       border-color: #263238;
-     
     }
 
     .flip-this {
@@ -816,6 +756,7 @@ background: grey;
       transform: rotate(-180deg);
     }
   }
+  // closed hover
 
   @media (max-width: 1024px) {
     grid-template-columns: auto;
@@ -895,13 +836,7 @@ background: grey;
   &:nth-of-type(even),
   &:nth-of-type(odd) {
     &:hover {
-      background: $copy__wheat;
       // background: rgba(255,255,255,0.75);
-
-      // test demo this
-      details {
-        color: $copy__wheat;
-      }
 
       .ticket__timeline__marker__icon {
         transform-style: preserve-3d;
@@ -935,7 +870,7 @@ background: grey;
       height: 170%;
     }
 
-    &:nth-of-type(even) {}
+    // &:nth-of-type(even) {}
 
     &__line {
       width: 5px;
@@ -981,9 +916,8 @@ background: grey;
 }
 
 // =======================
-//  end  ticket and time line 
+//  end  ticket and time line
 // ======================
-
 
 // =======================
 //   .ticket-sub
@@ -1032,10 +966,10 @@ background: grey;
     bottom: -14px;
   }
 
-   &__title {
+  &__title {
     @extend .copy__ticket__title;
     background: var(--color-tertiary);
-    color: white; 
+    color: white;
     &:before,
     &:after {
       background: var(--color-bg);
@@ -1082,12 +1016,9 @@ background: grey;
   }
 }
 
-
 // =======================
 //  end  .ticket-sub
 // ======================
-
-
 
 .ticket-main {
   padding: 10px;
@@ -1109,53 +1040,58 @@ background: grey;
   box-shadow: inset 0 0 0 2px var(--color-secondary);
   z-index: 1;
 
+  &__title {
+    grid-area: head;
+    height: auto;
+    @extend .copy__ticket__meta-title;
+    padding: 1rem 0.8rem;
+    color: white;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    background-color: var(--color-tertiary);
+    position: relative;
 
-&__title {
-  grid-area: head;
-  height: auto;
-  @extend .copy__ticket__meta-title;
-  padding: 1rem 0.8rem;
-  color: white;
-  writing-mode: vertical-rl;
-  text-orientation: sideways;
-  background-color: var(--color-tertiary);
-  position: relative;
-
-  border-top: 2px solid var(--color-secondary);
-  border-bottom: 2px solid var(--color-secondary);
-  z-index: 1;
-  
-
-
-}  
-
-
+    border-top: 2px solid var(--color-secondary);
+    border-bottom: 2px solid var(--color-secondary);
+    z-index: 1;
+  }
 
   // close ticket seat
 }
 
-
-.ticket-seat-box{
+.ticket-seat-box {
   writing-mode: vertical-rl;
   text-orientation: sideways;
-  text-align: center; 
+  text-align: center;
 
-&__subtitle {  @extend .copy__ticket__meta-cat-title;}
+  &__subtitle {
+    @extend .copy__ticket__meta-cat-title;
+  }
 
-&__title { @extend .copy__ticket__meta-cat-desc; }
+  &__title {
+    @extend .copy__ticket__meta-cat-desc;
+  }
 
-&:not(:last-child) { border-bottom: 2px solid var(--color-secondary);}
+  &:not(:last-child) {
+    border-bottom: 2px solid var(--color-secondary);
+  }
 
-&:nth-of-type(1) { grid-area: suba; padding: 0.2rem;}
+  &:nth-of-type(1) {
+    grid-area: suba;
+    padding: 0.2rem;
+  }
 
-&:nth-of-type(2) {  grid-area: subb;  padding: 0.2rem; }
+  &:nth-of-type(2) {
+    grid-area: subb;
+    padding: 0.2rem;
+  }
 
-&:nth-of-type(3) { grid-area: subc;  padding: 0.2rem;}
+  &:nth-of-type(3) {
+    grid-area: subc;
+    padding: 0.2rem;
+  }
   // close ticket-seat-box
 }
- 
-
-
 
 .ticket-info {
   padding-left: 10px;
@@ -1168,25 +1104,25 @@ background: grey;
     "TicketExperiance"
     "TicketMisc"
     "TicketBarcode";
-  box-shadow: inset 0 0 0 2px var(--color-secondary); 
+  box-shadow: inset 0 0 0 2px var(--color-secondary);
   align-items: center;
   align-content: start;
   justify-items: stretch;
- 
-  >div:not(:nth-last-child(-n + 2)) {
+
+  > div:not(:nth-last-child(-n + 2)) {
     border-bottom: 2px dashed var(--color-secondary);
   }
 
   .ticket-info-brand {
-    grid-area: TicketHeadliner; 
-    align-self: center; 
+    grid-area: TicketHeadliner;
+    align-self: center;
     border-bottom: 2px dashed var(--color-secondary);
   }
 
   .ticket-info-brawler {
     grid-area: TicketDuration;
-    display: flex; 
-    width: 100%; 
+    display: flex;
+    width: 100%;
     .separator {
       writing-mode: vertical-lr;
       text-orientation: upright;
@@ -1200,32 +1136,31 @@ background: grey;
   }
 
   .brawler {
-    width: calc(50% - 20px); 
-    align-self: center; 
-    &__subtitle{
-    display: block;
-    @extend .copy__ticket__month-subtitle;
+    width: calc(50% - 20px);
+    align-self: center;
+    &__subtitle {
+      display: block;
+      @extend .copy__ticket__month-subtitle;
+    }
+    &__title {
+      margin-top: -8px;
+      display: block;
+      @extend .copy__ticket__month-title;
+    }
   }
-  &__title{
-    margin-top: -8px;
-    display: block;
-    @extend .copy__ticket__month-title;
-  }
-  }
-} 
- 
-  .ticket-info-referee {
+}
+
+.ticket-info-referee {
   grid-area: TicketHeadlinerDetail;
   align-self: center;
   padding: 1rem 0.3rem;
   &__title {
     @extend .copy__ticket__summary-title;
   }
-  &__subtitle{
+  &__subtitle {
     @extend .copy__ticket__summary-desc;
   }
 }
- 
 
 .ticket-info .ticket-info-date {
   grid-area: TicketExperiance;
@@ -1238,29 +1173,32 @@ background: grey;
   // height: 6vh;
 }
 
-.ticket-info { 
+.ticket-info {
   .ticket-info-date2 {
-  grid-area: TicketBarcode;
-
- } 
-  .ticket-info-misc {
-  grid-area: TicketMisc;
-  align-self: center;
-  position: relative;
-  padding: 1rem 0;
-  @extend .copy__ticket__location;
-  strong{
-   @extend .ticket-info-referee__title;
+    grid-area: TicketBarcode;
   }
+  .ticket-info-misc {
+    grid-area: TicketMisc;
+    align-self: center;
+    position: relative;
+    padding: 1rem 0;
+    @extend .copy__ticket__location;
+    strong {
+      @extend .ticket-info-referee__title;
+    }
   }
 }
 
 // ========================
 //  start expland collapse / readmore
 // ========================
-summary::-webkit-details-marker { color: blue;}
+summary::-webkit-details-marker {
+  color: blue;
+}
 
-summary:focus {  outline-style: none;}
+summary:focus {
+  outline-style: none;
+}
 
 summary::-webkit-details-marker {
   color: #00acf3;
@@ -1309,8 +1247,7 @@ summary:focus {
   }
 }
 
-.dudewinn{ 
- overflow: hidden;
+.dudewinn {
+  overflow: hidden;
   height: 0;
- 
 }

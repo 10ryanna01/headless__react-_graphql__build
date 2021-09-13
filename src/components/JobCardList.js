@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "gatsby";
+import { Link } from "gatsby"; 
 import gsap from "gsap"; 
 // gsap config toggle for testing
 gsap.config({ nullTargetWarn: false });
@@ -9,6 +9,8 @@ gsap.config({ nullTargetWarn: false });
 //start
 // single job component for use in grid and to sort job by years
 // =====================================
+
+ 
 function SingleJobItem({ data, job }) {
   
   
@@ -16,31 +18,27 @@ function SingleJobItem({ data, job }) {
   // set refs for animation triggers
   let animationC = useRef(null);
   let animationCClose = useRef(null);
-  let animationCParent = useRef(null);
-  let outerBoundsRef = useRef(null);
+  let animationCParent = useRef(null); 
+  let skillRef = useRef(null); 
 
   // set states for show/hide state hooks
   const [showReadmore, setShowReadmore] = useState(null);
+  const [showSkills, setShowSkills] = useState(null); 
   
  
+  // end register if fields are empty
 
- 
 
   let animateReadMore = () => {
-    animationC.current = gsap.timeline().to(animationCParent.current, { 
-      opacity: 1,
-      autoAlpha: 1,
+    animationC.current = gsap.timeline().to(animationCParent.current, {     
       height: "auto",
-      duration: 0.5,
       ease: "Expo.easeInOut",
     });
 
     return () => {
       animationC.current.kill();
     };
-  };
-
-
+  }; 
 
   const handleonClickReadMore = () => {
     setShowReadmore(!showReadmore);
@@ -54,11 +52,18 @@ function SingleJobItem({ data, job }) {
       console.log('is closed');
       
     }
-  };
-
-
+  }; 
 
   useEffect(() => {
+    
+// check if fields are empty functions
+
+if (skillRef.current !== null ){
+  setShowSkills(false);
+  console.log("its emty dude");
+}
+ 
+    
  
     animateReadMore();
     if (animationC.current.isActive()) {
@@ -77,13 +82,12 @@ function SingleJobItem({ data, job }) {
       animationC.current.reverse();
     } else {
       animationC.current.play();
-    } 
+    }  
+  }, [showReadmore]); 
  
-  }, [showReadmore]);
 
 
-
- 
+    
 
   return (
     <div className="ticket"  ref={animationCClose} onClick={handleonClickReadMore} >
@@ -92,7 +96,7 @@ function SingleJobItem({ data, job }) {
         <p className="ticket-sub__serial">No 06900666</p>
       </aside>
 
-      <div className="ticket-main"   >
+      <div className="ticket-main">
         <section className="ticket-seat">
           <h3 className="ticket-seat__title">sector: web development</h3>
           <div className="ticket-seat-box">
@@ -179,17 +183,20 @@ function SingleJobItem({ data, job }) {
               <div className={`${showReadmore}`} >
                 <p className="copy__description-role">
                   <strong className="copy__bold-subtitle">Project Outline:</strong>
-                  {job.roleoverview}
+                   <div dangerouslySetInnerHTML={{__html: job.roleoverview}} />
                 </p>
-
+              
                 <p className="copy__description-role">
                   <strong className="copy__bold-subtitle">Skills Applied:</strong>
-                  {job.skillsapplied}
+                  <span dangerouslySetInnerHTML={{__html: job.skillsapplied}}     />
                 </p>
-                <p className="copy__description-role">
+            
+                {showSkills ? 
+                <p className="copy__description-role"  >
                   <strong className="copy__bold-subtitle">Skills Learned:</strong>
-                  {job.skillslearned}
-                </p>
+                  <div ref={skillRef} >{job.skillslearned}</div>
+                </p> : null }
+
               </div>           
               </div>
           </div>

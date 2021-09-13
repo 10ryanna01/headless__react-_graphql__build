@@ -38,7 +38,7 @@ query QueryAllJobs($year: [String], $location: [String]), {
     nodes {
       id
       name
-      skillsapplied
+      skillsapplied 
       skillslearned
       roleoverview
       namecompany
