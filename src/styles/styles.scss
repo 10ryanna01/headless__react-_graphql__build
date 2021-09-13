@@ -598,6 +598,7 @@ body {
 .nav__categories {
   display: block;
   gap: 1rem;
+  pointer-events: all;
 
   [aria-current="page"],
   &__link {
