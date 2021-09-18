@@ -237,13 +237,18 @@ if (skillRef.current !== null ){
 
 // grid component list of jobs
 export default function JobCardList({ countAllJobs }) {
+ 
+ 
+
   return (
     <div>
       <i>there are {countAllJobs.length} yay in this component list </i>
 
       <div className="ticket__wrapper">
-        {countAllJobs.map((job) => (
-          <SingleJobItem job={job} key={job.id} />
+        
+        {countAllJobs
+        .map((job) => (
+          <SingleJobItem job={job} key={job.id} /> 
         ))}
       </div>
     </div>

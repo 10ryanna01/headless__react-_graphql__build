@@ -113,11 +113,11 @@ data.jobs.nodes.forEach((job) => {
 
     actions.createPage({
         //what is the url for each new page
-        path: `job/${job.slug.current}`,
+        path: `job/${job.name}`,
         // which page component is the data being loaded into
         component: jobTemplate,
         context: {
-            slug: job.slug.current,
+            slug: job.slug,
 
         }
 

@@ -599,7 +599,9 @@ body {
   display: block;
   gap: 1rem;
   pointer-events: all;
-
+  height: 200px;
+  overflow-y: scroll;
+  overflow-y: overlay;
   [aria-current="page"],
   &__link {
     cursor: pointer;

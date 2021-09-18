@@ -29,12 +29,21 @@ export default function BasePage({ data, pageContext }) {
   );
 }
 
+//filter query by date created DESC & add filter by year and joblocation
 export const query = graphql`
+
 query QueryAllJobs($year: [String], $location: [String]), {
   jobs: allSanityJobrole(
-    filter: {jobyear: {elemMatch: {name: {in: $year}}}, 
-      joblocation: {elemMatch: {name: {in:  $location}}}}
-  ) {
+    
+    sort: { fields: [_createdAt] order: DESC }
+filter: {
+ jobyear: {elemMatch:
+   {name: {in: $year}}
+ },  
+ joblocation: {elemMatch: {name: {in: $location}}},
+
+}
+) {
     nodes {
       id
       name

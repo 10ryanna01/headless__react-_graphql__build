@@ -211,9 +211,9 @@ export default function YearsFilter({ activeYear, activeLocation }) {
       animation.current.restart();
     }
 
-    document.addEventListener("mousedown", handlemyExitDropdownA);
+    document.addEventListener("click", handlemyExitDropdownA);
     return () => {
-      document.removeEventListener("mousedown", handlemyExitDropdownA);
+      document.removeEventListener("click", handlemyExitDropdownA);
     };
   }, []);
 
@@ -359,7 +359,9 @@ export default function YearsFilter({ activeYear, activeLocation }) {
               <span className="copy__cat"> ( {jobs.nodes.length} )</span>
             </Link>
 
-            {yearsWithCounts.map((year) => (
+            {yearsWithCounts
+            .sort(({ name: previousYear }, { name: currentYear }) =>  currentYear - previousYear) 
+            .map((year) => (
               <Link
                 to={`/year/${year.name}`}
                 key={year.id}
