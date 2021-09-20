@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef  } from "react";
-import { graphql, useStaticQuery, Link,   } from "gatsby";
+import { graphql, useStaticQuery, Link  } from "gatsby";
 import gsap from "gsap"; 
 // gsap config toggle for testing
 gsap.config({ nullTargetWarn: false });
@@ -121,16 +121,13 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   let refOutsideclickA = useRef(null);
 
   const animation = useRef(null);
-  const animationB = useRef(null);
+  const animationB = useRef(null); 
 
-  let wrapperRef = useRef(null);
-  let refOutsideclick = useRef(null);
 
-  const [isOpenYears, setOpenYears] = useState(false);
-  const [itemsYears, setItemYears] = useState(jobs);
+ 
   const [selectedItemYears, setSelectedItemYears] = useState(activeYear);
   //end  drop down  ====  job years =========
-
+  const [isOpenYears, setOpenYears] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [items, setItem] = useState(joblocation);
   const [selectedItem, setSelectedItem] = useState(activeLocation);
@@ -247,150 +244,157 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   //animate dropdown B
 
   return (
-    <div>
-      <div>
-        test dropdown
+    <>
+      <div>        
         {/* <Dropdown   dddata={joblocation, locationsWithCounts, location }  /> */}
       </div>
+     
 
-      <div>
-        <h1>this is the Years list to choose from</h1>
 
-        <p>
-          the active ingredient/Location would be{" "}
-          <strong>{activeLocation}</strong>
-        </p>
+
         {/* start grid */}
-        <div className="d__grid ">
-          <Link to="/basePage">
-            <span className="copy__cat">All Locations </span>
+        <section className="utility--filter">
+                            <div className="filter__wapper ">
 
-            <span className="copy__cat"> ( {joblocation.nodes.length} )</span>
-          </Link>
+                            {/* <p>
+                              the active ingredient/Location would be 
+                              <strong>{activeLocation}</strong>
 
-          {/* start dropdown */}
-         
-          <div className="dropdown" ref={dropdownARef}>
-            <div
-              className="dropdown-header"
-              ref={refOutsideclickA}
-              onClick={toggleDropdownLocation}
-            >
-              {selectedItem ? (
-                <span className="dropdown-header-status">{activeLocation}</span>
-              ) : (
-                "View all Locations"
-              )}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className={`  icon ${isOpen && "open"}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </div>
+                            </p> */}
+                                {/* <h1>this is the Years list to choose from</h1>
+                          <p>
+                            the active ingredient/year would be <strong>{activeYear}</strong>
+                          </p> */}
+                          {/* <div className="d__grid">
+                            <Link to="/basePage">
+                              <span className="copy__cat">All/latest </span>
+                              <span className="copy__cat"> ( {jobs.nodes.length} )</span>
+                            </Link>
 
-            <div className={`nav__categories   ${isOpen}`}>
-              <Link
-                to="/basePage"
-                className="nav__categories__link"
-                role="header bread crumb nav link"
-              >
-                <span className="copy__cat">show me all Locations</span>
-                <span className="copy__cat">
-                  {" "}
-                  ( {joblocation.nodes.length} )
-                </span>
-              </Link>
+                        
+                          </div> */}
 
-              {locationsWithCounts.map((location) => (
-                <Link
-                  to={`/location/${location.name}`}
-                  key={location.id}
-                  className="nav__categories__link"
-                  title={`${location.name} `}
-                >
-                  <span className="copy__cat">{location.name} </span>
+                              {/* <Link to="/basePage">
+                                <span className="copy__cat">All Locations </span>
 
-                  <span className="copy__cat"> ( {location.count} )</span>
-                </Link>
-              ))}
-            </div>
-          </div>
+                                <span className="copy__cat"> ( {joblocation.nodes.length} )</span>
+                              </Link> */}
 
-              {/* start dropdown */}
-        <div className="dropdown" ref={dropdownBRef}>
-          <div
-            className="dropdown-header"
-            ref={refOutsideclickB}
-            onClick={toggleDropdownYears}
-          >
-            {selectedItemYears ? (
-              <span className="dropdown-header-status">{activeYear}</span>
-            ) : (
-              "View work from all years"
-            )}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={` icon ${isOpenYears && "open"}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </div>
 
-          <div className={`nav__categories  ${isOpenYears && "open"}`}>
-            <Link to="/basePage" className="nav__categories__link">
-              <span className="copy__cat">show me jobs from all years</span>
-              <span className="copy__cat"> ( {jobs.nodes.length} )</span>
-            </Link>
+                    {/* end active anotations */}
+                              {/* start dropdown */}
+                          
+                              <div className="dropdown" ref={dropdownARef}>
+                                <div
+                                  className="dropdown-header"
+                                  ref={refOutsideclickA}
+                                  onClick={toggleDropdownLocation}
+                                >
+                                  {selectedItem ? (
+                                    <span className="dropdown-header-status">{activeLocation}</span>
+                                  ) : (
+                                    "View all Locations"
+                                  )}
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className={`  icon ${isOpen && "open"}`}
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M19 9l-7 7-7-7"
+                                    />
+                                  </svg>
+                                </div>
 
-            {yearsWithCounts
-            .sort(({ name: previousYear }, { name: currentYear }) =>  currentYear - previousYear) 
-            .map((year) => (
-              <Link
-                to={`/year/${year.name}`}
-                key={year.id}
-                className="nav__categories__link"
-              >
-                <span className="copy__cat">{year.name} </span>
-                <span className="copy__cat"> ( {year.count} )</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-          {/* close dropdown */}
-        </div>
-        {/* close grid */}
-      </div>
+                                <div className={`nav__categories   ${isOpen}`}>
+                                  <Link
+                                    to="/basePage"
+                                    className="nav__categories__link"
+                                    role="header bread crumb nav link"
+                                  >
+                                    <span className="copy__cat">show me all Locations</span>
+                                    <span className="copy__cat">
+                                      {" "}
+                                      ( {joblocation.nodes.length} )
+                                    </span>
+                                  </Link>
 
-      <h1>this is the Years list to choose from</h1>
-      <p>
-        the active ingredient/year would be <strong>{activeYear}</strong>
-      </p>
-      <div className="d__grid">
-        <Link to="/basePage">
-          <span className="copy__cat">All/latest </span>
-          <span className="copy__cat"> ( {jobs.nodes.length} )</span>
-        </Link>
+                                  {locationsWithCounts.map((location) => (
+                                    <Link
+                                      to={`/location/${location.name}`}
+                                      key={location.id}
+                                      className="nav__categories__link"
+                                      title={`${location.name} `}
+                                    >
+                                      <span className="copy__cat">{location.name} </span>
 
+                                      <span className="copy__cat"> ( {location.count} )</span>
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+
+                                  {/* start dropdown */}
+                            <div className="dropdown" ref={dropdownBRef}>
+                              <div
+                                className="dropdown-header"
+                                ref={refOutsideclickB}
+                                onClick={toggleDropdownYears}
+                              >
+                                {selectedItemYears ? (
+                                  <span className="dropdown-header-status">{activeYear}</span>
+                                ) : (
+                                  "View work from all years"
+                                )}
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className={` icon ${isOpenYears && "open"}`}
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"
+                                  />
+                                </svg>
+                              </div>
+
+                              <div className={`nav__categories  ${isOpenYears && "open"}`}>
+                                <Link to="/basePage" className="nav__categories__link">
+                                  <span className="copy__cat">show me jobs from all years</span>
+                                  <span className="copy__cat"> ( {jobs.nodes.length} )</span>
+                                </Link>
+
+                                {yearsWithCounts
+                                .sort(({ name: previousYear }, { name: currentYear }) =>  currentYear - previousYear) 
+                                .map((year) => (
+                                  <Link
+                                    to={`/year/${year.name}`}
+                                    key={year.id}
+                                    className="nav__categories__link"
+                                  >
+                                    <span className="copy__cat">{year.name} </span>
+                                    <span className="copy__cat"> ( {year.count} )</span>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                              {/* close dropdown */}
+                            </div>
+                            {/* close grid */}
+                </section>
+   
+   
     
-      </div>
-    </div>
+    </>
 
     // end
   );

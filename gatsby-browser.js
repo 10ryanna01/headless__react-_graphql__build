@@ -1,11 +1,19 @@
 import React from "react";
 import Layout from "./src/components/Layout";
+import YearsFilter from "./src/components/JobsFilter";
 
-export function wrapPageElement({ element, props }) {
-  return <Layout {...props}> 💩 {element} </Layout>;
+export function wrapPageElement({ element, props  }) {
+  return  <Layout {...props}> {element}  
+                  
+                
 
+  </Layout>
   
-}
+  ;}
+
+ 
+
+ 
  
 // export function shouldUpdateScroll(element, { props }) {
 //   window.scrollTo(0, 0)

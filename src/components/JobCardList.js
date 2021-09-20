@@ -32,6 +32,7 @@ function SingleJobItem({ data, job }) {
   let animateReadMore = () => {
     animationC.current = gsap.timeline().to(animationCParent.current, {     
       height: "auto",
+      duration: 0.5,
       ease: "Expo.easeInOut",
     });
 
@@ -153,7 +154,7 @@ if (skillRef.current !== null ){
           </div>
           {/* <!-- company overview profile --> */}
           <div className="ticket-info-referee">
-            <span className="ticket-info-referee__title">Company Profile:</span>
+            <span className="ticket-info-referee__title">Company Profile: </span>
             <span className="ticket-info-referee__subtitle">
               {job.companyoutline}
             </span>
@@ -182,20 +183,15 @@ if (skillRef.current !== null ){
             
               <div className={`${showReadmore}`} >
                 <p className="copy__description-role">
-                  <strong className="copy__bold-subtitle">Project Outline:</strong>
+                  <strong className="copy__bold-subtitle">Project Outline: </strong>
                    <div dangerouslySetInnerHTML={{__html: job.roleoverview}} />
                 </p>
               
                 <p className="copy__description-role">
-                  <strong className="copy__bold-subtitle">Skills Applied:</strong>
+                  <strong className="copy__bold-subtitle">Skills Applied: </strong>
                   <span dangerouslySetInnerHTML={{__html: job.skillsapplied}}     />
                 </p>
-            
-                {showSkills ? 
-                <p className="copy__description-role"  >
-                  <strong className="copy__bold-subtitle">Skills Learned:</strong>
-                  <div ref={skillRef} >{job.skillslearned}</div>
-                </p> : null }
+           
 
               </div>           
               </div>
@@ -241,8 +237,8 @@ export default function JobCardList({ countAllJobs }) {
  
 
   return (
-    <div>
-      <i>there are {countAllJobs.length} yay in this component list </i>
+    <>
+      {/* <i>there are {countAllJobs.length} yay in this component list </i> */}
 
       <div className="ticket__wrapper">
         
@@ -251,6 +247,6 @@ export default function JobCardList({ countAllJobs }) {
           <SingleJobItem job={job} key={job.id} /> 
         ))}
       </div>
-    </div>
+    </>
   );
 }

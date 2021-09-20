@@ -1,7 +1,9 @@
 import React from "react";
 import { Link, navigate, } from "gatsby";
+import { graphql } from "gatsby"; 
+export default function PageHeader({ activeYear, activeLocation, data, pageContext }) {
+ 
 
-export default function PageHeader() {
     //   const handleChangeOption = (e) => {
     //     if (e.target.value === "0") {
     //       navigate("/basePage");
@@ -16,6 +18,9 @@ export default function PageHeader() {
     <header className="header__wrapper">
   <div className="header__block">
     <section className="header__personal">
+
+    {/* <YearsFilter activeYear={activeYear} activeLocation={activeLocation}  /> */}
+
       <p className="header__headshot">
         <img
           src="http://insightsurfer.net/gulp/MicrositePortfolio/web/resources/images/profile.png"
@@ -203,24 +208,25 @@ export default function PageHeader() {
       </div>
     </section>
     <aside className="header__search">
-      {/* <!-- <h1 className="header__title"> portfolio timeline</h1> --> */}
-      <div className="filter__wapper">
-        <select className="filter__select">
-          <option>Filter by Year</option>
-          <option>apples</option>
-          <option>banana</option>
-          <option>pear</option>
-          <option>orange</option>
-        </select>
-        <select className="filter__select">
-          <option>Filter by Location</option>
-          <option>apples</option>
-          <option>banana</option>
-          <option>pear</option>
-          <option>orange</option>
-        </select>
-      </div>
-    </aside>
+{/* <!-- <h1 className="header__title"> portfolio timeline</h1> --> */}
+<div className="filter__wapper">
+  <select className="filter__select">
+    <option>Filter by Year</option>
+    <option>apples</option>
+    <option>banana</option>
+    <option>pear</option>
+    <option>orange</option>
+  </select>
+  <select className="filter__select">
+    <option>Filter by Location</option>
+    <option>apples</option>
+    <option>banana</option>
+    <option>pear</option>
+    <option>orange</option>
+  </select>
+</div>
+
+</aside>
   </div>
 </header>
 
