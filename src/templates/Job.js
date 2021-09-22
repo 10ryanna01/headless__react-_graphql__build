@@ -27,7 +27,7 @@ show me the year the film was made       <p>{jobinfo.jobyear.map((year) => year.
 
 export const query = graphql`
   query ($slug: String!) {
-    job: sanityJobrole(slug: { current: { eq: $slug } }) {
+    job: sanityJobrole(slug: { current: { eq: $slug  } }) {
       name
       id
       roleoverview
