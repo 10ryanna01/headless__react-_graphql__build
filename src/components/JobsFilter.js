@@ -253,8 +253,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
 
         {/* start grid */}
-        <section className="utility--filter">
-                            <div className="filter__wapper ">
+        <section className="filter__wrapper"> 
 
                             {/* <p>
                               the active ingredient/Location would be 
@@ -388,7 +387,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                               </div>
                             </div>
                               {/* close dropdown */}
-                            </div>
+                           
                             {/* close grid */}
                 </section>
    

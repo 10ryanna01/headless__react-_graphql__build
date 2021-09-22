@@ -1,18 +1,19 @@
 import * as React from "react";
 import { graphql } from "gatsby"; 
-import JobCardList from "../components/JobCardList";   
+import JobCardList from "../components/JobCardList";    
 
 import YearsFilter from "../components/JobsFilter";
+ 
 
-
-export default function BasePage({ data, pageContext }) {
+export default function BasePage({ data, pageContext, location }) {
   console.log({ data });
   const countAllJobs = data.jobs.nodes;
 
   return (
-    <>
-    
-      <div className="">
+    <div>
+     
+     
+  <YearsFilter   activeYear={pageContext.year} activeLocation={pageContext.location}  /> 
         {/* <title>Second page</title>
         <span>
           hello world this is the <i>base page</i>
@@ -20,12 +21,13 @@ export default function BasePage({ data, pageContext }) {
         <span>
           hello world there are {countAllJobs.length} on this <i>base page</i>
         </span> */}
+  <main className="results__wrapper">
 
-  {/* <YearsFilter  activeYear={pageContext.year} activeLocation={pageContext.location}  /> */}
-             
         <JobCardList countAllJobs={countAllJobs} />
-      </div>
-    </>
+      
+</main>
+    
+    </div>
   );
 }
 

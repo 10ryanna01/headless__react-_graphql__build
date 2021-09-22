@@ -19,7 +19,7 @@ function SingleJobItem({ data, job }) {
   let animationC = useRef(null);
   let animationCClose = useRef(null);
   let animationCParent = useRef(null); 
-  let skillRef = useRef(null); 
+ 
 
   // set states for show/hide state hooks
   const [showReadmore, setShowReadmore] = useState(null);
@@ -57,14 +57,7 @@ function SingleJobItem({ data, job }) {
 
   useEffect(() => {
     
-// check if fields are empty functions
-
-if (skillRef.current !== null ){
-  setShowSkills(false);
-  console.log("its emty dude");
-}
- 
-    
+// check if fields are empty functions 
  
     animateReadMore();
     if (animationC.current.isActive()) {

@@ -209,7 +209,7 @@ export default function PageHeader({ activeYear, activeLocation, data, pageConte
     </section>
     <aside className="header__search">
 {/* <!-- <h1 className="header__title"> portfolio timeline</h1> --> */}
-<div className="filter__wapper">
+{/* <div className="filter__wapper">
   <select className="filter__select">
     <option>Filter by Year</option>
     <option>apples</option>
@@ -224,7 +224,7 @@ export default function PageHeader({ activeYear, activeLocation, data, pageConte
     <option>pear</option>
     <option>orange</option>
   </select>
-</div>
+</div> */}
 
 </aside>
   </div>
