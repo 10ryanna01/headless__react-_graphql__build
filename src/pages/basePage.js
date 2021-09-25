@@ -1,7 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby"; 
-import JobCardList from "../components/JobCardList";    
-
+import JobCardList from "../components/JobCardList"; 
 import YearsFilter from "../components/JobsFilter";
  
 
@@ -13,7 +12,7 @@ export default function BasePage({ data, pageContext, location }) {
     <div>
      
      
-  <YearsFilter   activeYear={pageContext.year} activeLocation={pageContext.location}  /> 
+  <YearsFilter activeYear={pageContext.year} activeLocation={pageContext.location}  /> 
         {/* <title>Second page</title>
         <span>
           hello world this is the <i>base page</i>

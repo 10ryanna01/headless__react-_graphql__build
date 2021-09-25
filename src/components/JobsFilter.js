@@ -168,6 +168,10 @@ export default function YearsFilter({ activeYear, activeLocation }) {
     selectedItem == id ? setSelectedItem(activeLocation) : setSelectedItem(id);
     setOpen(!isOpen);
   };
+  const handleItemClickYears = (id) => {
+    selectedItem == id ? setSelectedItemYears(activeYear) : setSelectedItemYears(id);
+    setSelectedItemYears(!isOpenYears);
+  };
 
   // gsap info: https://greensock.com/position-parameter/
   // drop down  ====  job years =========

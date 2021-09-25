@@ -24,94 +24,29 @@ export default function PageHeader({ activeYear, activeLocation, data, pageConte
       <p className="header__headshot">
         <img
           src="http://insightsurfer.net/gulp/MicrositePortfolio/web/resources/images/profile.png"
-          className="header__headshot__img"
-        />
-         <ul className="tempul">
-        <li>
-          <Link to="/basePage" className="templink"> go to jobs page here</Link>
-        </li>
-        <li>
-          <Link to="/pizzasPage" className="templink">go to pizza page</Link>
-        </li>
-      </ul>
+          className="header__headshot__img" />
+        
+        
+        
+               
+        <Link to="/basePage" className="templink header__contact__social__link "   title="Download My Resume (PDF)"
+            target="_blank">grab my Resume
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon__social" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z" />
+</svg>
+            </Link>
+       
     
       </p>
 
       <div className="header__summary">
-        <p>ryann al-lahiq</p>
+        <p>ryann al-lahiq </p>
 
-        <p>
-          experienced Front-End Developer
-          {/* <!--  transition 6 years in the making --> */}
-        </p>
+        <p>experienced Front-End Developer </p>
 
         <p>based in London, UK</p>
         <div className="header__contact__social">
-          <a
-            href="#/"
-            title="Download My Resume (PDF)"
-            target="_blank"
-            className="header__contact__social__link"
-          >
-              
-            {/* <!-- <svg xmlns="http://www.w3.org/2000/svg" className="icon__social" fill="none" width="24" height="24"
-                  viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg> --> */}
-
-            <svg
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-           
-              x="0px"
-              y="0px"
-              width="950px"
-              height="950px"
-              viewBox="0 0 950 950"
-              
-            
-              className="icon__social"
-            >
-              <g>
-                <g>
-                  <path
-                    d="M300.671,630.936v84.662h-58.51c-12.415,0-18.365,15.246-9.232,23.656L452.12,941.07c12.93,11.906,32.828,11.906,45.759,0
-			l219.19-201.816c9.135-8.408,3.185-23.656-9.231-23.656h-58.509v-84.662H300.671z"
-                  />
-                  <path
-                    d="M292.463,134.036V2.661c-3.189,1.452-6.128,3.466-8.653,5.992L134.666,157.797c-2.526,2.525-4.54,5.464-5.992,8.653
-			h131.375C277.951,166.45,292.463,151.938,292.463,134.036z"
-                  />
-                  <path
-                    d="M155.557,605.348h145.114h348.658h145.114c16.317,0,29.545-13.229,29.545-29.545V29.545
-			C823.988,13.228,810.761,0,794.443,0H318.051v134.036c0,31.983-26.021,58.003-58.003,58.003H126.012v383.764
-			C126.012,592.119,139.24,605.348,155.557,605.348z M307.329,276.253h335.344c7.065,0,12.794,5.728,12.794,12.794
-			s-5.729,12.794-12.794,12.794H307.329c-7.066,0-12.794-5.728-12.794-12.794S300.263,276.253,307.329,276.253z M300.671,419.024
-			c1.94-1.187,4.215-1.884,6.657-1.884h335.344c2.442,0,4.716,0.696,6.657,1.883c3.676,2.248,6.137,6.287,6.137,10.911
-			s-2.461,8.663-6.137,10.911c-1.941,1.187-4.216,1.883-6.657,1.883H307.329c-2.442,0-4.717-0.697-6.657-1.884
-			c-3.676-2.248-6.137-6.286-6.137-10.911S296.996,421.271,300.671,419.024z"
-                  />
-                </g>
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
-          </a>
+  
           <a
             href="https://uk.linkedin.com/in/ryannwithtwons"
             title="Get In Touch On My LinkedIn"
