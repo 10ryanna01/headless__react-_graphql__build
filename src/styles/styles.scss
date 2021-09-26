@@ -29,6 +29,20 @@ $copy__light: #ffffff;
 $copy__dark: #5c6bc0;
 $copy__link: #ff006a;
 
+.checkerdflag {
+  --square-size: 50px;
+  --half-square-size: calc(var(--square-size) / 2);
+  --color: black;
+
+  background-image: linear-gradient(45deg, var(--color) 25%, transparent 25%),
+    linear-gradient(135deg, var(--color) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--color) 75%),
+    linear-gradient(135deg, transparent 75%, var(--color) 75%);
+  background-size: var(--square-size) var(--square-size);
+  background-position: 0 0, var(--half-square-size) 0,
+    var(--half-square-size) var(--half-square-size), 0px var(--half-square-size);
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -86,13 +100,14 @@ body {
 // Typography
 // ============================
 .copy {
- &__headerinfo-text{
-  font-family: var(--font-misc);
+  &__headerinfo-text {
+    font-family: var(--font-misc);
     font-size: 1rem;
     letter-spacing: 3px;
     text-transform: capitalize;
     color: $copy__wheat;
-    text-shadow: 2px 2px #000;}
+    text-shadow: 2px 2px #000;
+  }
 
   &__ticket__title {
     font-family: var(--font-heading);
@@ -264,12 +279,7 @@ body {
       &:focus &:active {
       }
     }
-
-
-
   }
-
-
 }
 
 //   =========================
@@ -382,7 +392,7 @@ body {
 // ======================
 
 .header__wrapper {
-  .templink { 
+  .templink {
     text-transform: none;
     width: 100%;
     align-items: flex-start;
@@ -466,7 +476,7 @@ body {
         transition: all 0.5s ease-in-out;
       }
 
-      @media (max-width: 640px) { 
+      @media (max-width: 640px) {
         max-width: 95px;
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
@@ -474,9 +484,8 @@ body {
   }
 
   &__summary {
-  
- @extend .copy__headerinfo-text;
- user-select: none;
+    @extend .copy__headerinfo-text;
+    user-select: none;
     p {
       &:nth-of-type(3) {
         padding-bottom: 1rem;
@@ -491,9 +500,6 @@ body {
       width: 55%;
       font-size: 0.8rem;
       white-space: break-spaces;
-
-
-      
 
       p {
         display: inline;
@@ -691,16 +697,17 @@ body {
   pointer-events: all;
   height: 200px;
   overflow-y: scroll;
-  overflow-y: overlay; 
+  overflow-y: overlay;
 
-  [aria-current="page"], &__link {
+  [aria-current="page"],
+  &__link {
     cursor: pointer;
-    span{
+    span {
       @extend .copy__ticket__meta-cat-title;
-     color: $bg__muteddark;
-     text-align: center;
+      color: $bg__muteddark;
+      text-align: center;
     }
-    
+
     display: flex;
     padding: 1rem 0.5rem;
     text-align: center;
@@ -710,7 +717,7 @@ body {
     border-top: 1px solid $bg__muteddark;
     &:hover,
     &:focus {
-      background: $copy__wheat;  
+      background: $copy__wheat;
       color: $bg__muteddark;
     }
   }
@@ -720,7 +727,6 @@ body {
 
     &:hover,
     &:focus {
-      
       background: $bg__muteddark;
       color: $copy__wheat;
     }
@@ -732,7 +738,6 @@ body {
 // ========================
 
 .results__wrapper {
-  
   height: 100vh;
 }
 
@@ -746,12 +751,12 @@ body {
   box-shadow: 0;
   background-color: white;
   @extend .copy__ticket__meta-cat-title;
-  
+
   position: relative;
   // top: 7px;
   // height: 3rem;
   top: 14px;
-  height: 2.2rem;  
+  height: 2.2rem;
   overflow: hidden;
   border-left: 10px solid green;
 
@@ -760,22 +765,22 @@ body {
     margin: 0 auto;
     position: absolute;
 
-    &:nth-of-type(1){
+    &:nth-of-type(1) {
       top: 70px;
     }
   }
 }
 
 .dropdown-header {
-  // padding: 15px;
-  padding: 0.5rem;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  border-radius: 4px; 
-  user-select: none; 
-
+  justify-content: center;
+  align-items: center;
+  height: 2.45rem;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-family: var(--font-misc);
   font-size: 1rem;
   font-weight: 400;
@@ -818,6 +823,8 @@ body {
   font-size: 13px;
   color: #91a5be;
   transform: rotate(0deg);
+  position: absolute;
+  right: 10px;
 }
 
 .icon.open {
@@ -844,10 +851,20 @@ body {
   }
 
   @media (max-width: 480px) {
-   
     // transform: translate(-5%, 400px) scale(0.65);
-     transform: translate(-5%, 350px) scale(0.5);
+    transform: translate(-5%, 350px) scale(0.5);
   }
+
+  // &:after{
+  //   position: relative;
+  //   top: -20px;
+  //   width: 250px;
+  //   height: 120px;
+  //   content: "";
+  //   display: block;
+  //   left: -20px;
+  //   z-index: 100;
+  // }
 }
 
 // =======================
@@ -891,11 +908,20 @@ body {
   // closed hover
 
   @media (max-width: 1024px) {
-    // grid-template-columns: auto;
-    grid-template-columns: 1fr;
-    //  width: min-content;    
-    // width: 645px; 
-    // width: fit-content;    
+    grid-template-columns: auto;
+    // grid-template-columns: 1fr;
+    //  width: min-content;
+    // width: 645px;
+    width: fit-content;
+    // min-width: min-content;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: auto;
+    // grid-template-columns: 1fr;
+    //  width: min-content;
+    // width: 645px;
+    width: 180%;
     // min-width: min-content;
   }
 
@@ -1180,15 +1206,15 @@ body {
   &__title {
     grid-area: head;
     height: auto;
-    width: 50px;
-    justify-self: self-start;
+    //  max-width: 4px;
+
     // @extend .copy__ticket__meta-title;
     font-family: var(--font-body);
     text-transform: uppercase;
     letter-spacing: 3px;
-        line-height: 1rem;			
+    line-height: 1rem;
     font-weight: bold;
-    text-align: center;
+
     backface-visibility: hidden;
     padding: 1rem 0.8rem;
     color: white;
@@ -1401,9 +1427,19 @@ summary:focus {
   }
 }
 
-.dudewinn {
-  overflow: hidden;
-  height: 0;
+.timeline__end {
+  position: relative;
+  width: 65px;
+  height: auto;
+  color: gold;
+  background: #ff006a;
+  border: 2px solid white;
+  display: block;
+  border-radius: 100%;
+  top: -40px;
+  left: -3px;
+  z-index: 100;
+  box-shadow: 5px 7px 16px -1px #000000;
+  transform: scale(1);
+  padding: 0.5rem;
 }
-
- 

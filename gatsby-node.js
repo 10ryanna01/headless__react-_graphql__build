@@ -137,7 +137,7 @@ data.jobs.nodes.forEach((job) => {
 async function turnJobYearsIntoPages({graphql, actions}) {
   console.log("turning the jobyears into pages");
   
-  const yearsTemplate = path.resolve(`./src/pages/basePage.js`);
+  const yearsTemplate = path.resolve(`./src/pages/index.js`);
 
   const { data } = await graphql(`
 
@@ -180,7 +180,7 @@ async function turnJobYearsIntoPages({graphql, actions}) {
  
 async function turnJobLocationIntoPages ({ graphql, actions }) {
   console.log("turning the joblocation into pages");
-  const locationTemplate = path.resolve(`./src/pages/basePage.js`);
+  const locationTemplate = path.resolve(`./src/pages/index.js`);
 
   const { data } = await graphql(`
     query {
