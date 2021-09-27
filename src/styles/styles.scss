@@ -1,9 +1,19 @@
+@import "themefonts";
 @import "reset";
-@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Modak&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap");
+
 // my styles
+
+@font-face {  font-family: 'Custom Font';  
+  font-weight: 400;  
+  font-style: normal;  
+  font-display: swap; /* Read next point */  
+  unicode-range: U+000-5FF; /* Download only latin glyphs */  
+  src: local('Custom Font'),       
+  url('/fonts/custom-font.woff2') 
+  format('woff2'),        
+  url('/fonts/custom-font.woff') 
+  format('woff');}
+
 
 // ==========================
 // vars
@@ -109,6 +119,7 @@ body {
     text-shadow: 2px 2px #000;
   }
 
+  
   &__ticket__title {
     font-family: var(--font-heading);
 
@@ -320,6 +331,11 @@ body {
 // ============================
 // utilites
 // ============================
+
+.utility--mb-05{
+  margin-bottom: 0.5rem;
+}
+
 .utility--filter {
   position: relative;
   transform: translate(0%, 305px);
@@ -1437,9 +1453,24 @@ summary:focus {
   display: block;
   border-radius: 100%;
   top: -40px;
-  left: -3px;
+  left: 0;
   z-index: 100;
   box-shadow: 5px 7px 16px -1px #000000;
   transform: scale(1);
   padding: 0.5rem;
+
+ 
+
+
+  @media (max-width: 1024px) {
+    position: relative;
+    left: 51%;
+  }
+  
+  @media (max-width: 480px) {
+    position: relative;
+    left: 91%;
+    top: 150px;
+
+  }
 }

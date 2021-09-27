@@ -299,7 +299,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                                     "View all Locations"
                                   )}
                                   <svg
-                                    xmlns="http://www.w3.org/2000/svg"
+                                    xmlns="https://www.w3.org/2000/svg"
                                     className={`  icon ${isOpen && "open"}`}
                                     fill="none"
                                     viewBox="0 0 24 24"
@@ -316,7 +316,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
                                 <div className={`nav__categories   ${isOpen}`}>
                                   <Link
-                                    to="/basePage"
+                                    to="/"
                                     className="nav__categories__link"
                                     role="header bread crumb nav link"
                                   >
@@ -355,7 +355,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                                   "View work from all years"
                                 )}
                                 <svg
-                                  xmlns="http://www.w3.org/2000/svg"
+                                  xmlns="https://www.w3.org/2000/svg"
                                   className={` icon ${isOpenYears && "open"}`}
                                   fill="none"
                                   viewBox="0 0 24 24"
@@ -371,7 +371,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                               </div>
 
                               <div className={`nav__categories  ${isOpenYears && "open"}`}>
-                                <Link to="/basePage" className="nav__categories__link">
+                                <Link to="/" className="nav__categories__link">
                                   <span className="copy__cat">show me jobs from all years</span>
                                   <span className="copy__cat"> ( {jobs.nodes.length} )</span>
                                 </Link>

@@ -9,11 +9,31 @@ module.exports = {
  
 
   siteMetadata: {
-    title: "My Gatsby Site build",
+    title: "My portfolio site",
     description: "another cool portfolio built in react",
-    siteUrl: "https://a.b.c.com"
+    siteUrl: "https://www.insightsurfer.net/react/"
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "myportfoliotest",
+        short_name: "MPT", 
+        start_url: "/",
+        background_color: "#6b37bf",
+        theme_color: "#6b37bf",
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: "standalone",
+        icon: "./src/images/dev.png", // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+        crossOrigin: `use-credentials`,
+      },
+     
+    },
+    "gatsby-plugin-offline",
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
@@ -21,14 +41,7 @@ module.exports = {
     "gatsby-plugin-smoothscroll",
     "gatsby-plugin-transition-link",
     "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/Layout.js`), 
-      },
-    },
+    "gatsby-transformer-sharp", 
     
     { 
       resolve: "gatsby-source-filesystem",
@@ -39,6 +52,13 @@ module.exports = {
       __key: "images",
     },
     {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: ['https://insightsurfer.net/react/', 'https://www.insightsurfer.net/react/'],
+      },
+    },
+
+    {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: '7r4duhdc',
@@ -47,5 +67,6 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
       },
     },
+   
   ],
 };

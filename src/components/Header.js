@@ -23,7 +23,7 @@ export default function PageHeader({ activeYear, activeLocation, data, pageConte
 
       <p className="header__headshot">
         <img
-          src="http://insightsurfer.net/gulp/MicrositePortfolio/web/resources/images/profile.png"
+          src="https://insightsurfer.net/gulp/MicrositePortfolio/web/resources/images/profile.png"
           className="header__headshot__img" />
         
         
@@ -31,7 +31,7 @@ export default function PageHeader({ activeYear, activeLocation, data, pageConte
                
         <Link to="/basePage" className="templink header__contact__social__link "   title="Download My Resume (PDF)"
             target="_blank">grab my Resume
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon__social" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="https://www.w3.org/2000/svg" class="icon__social" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z" />
 </svg>
             </Link>

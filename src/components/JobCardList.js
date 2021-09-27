@@ -206,8 +206,11 @@ function SingleJobItem({ data, job }) {
           </div>
           <div className="ticket-info-misc">
             
-            <strong>Location</strong>
-            <p>{job.joblocation.map((job) => job.name)}</p>
+            <p className="utility--mb-05"><strong>Location</strong></p>
+        
+            <div> {job.joblocation.map((job, index ) => 
+                  <p className="copy__ticket__location">{job.name} </p>      
+            )}</div>
           </div>
         </section>
       </div>
