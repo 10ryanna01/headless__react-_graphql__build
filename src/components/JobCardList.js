@@ -30,7 +30,8 @@ function SingleJobItem({ data, job }) {
 
 
   let animateReadMore = () => {
-    animationC.current = gsap.timeline().to(animationCParent.current, {     
+    animationC.current = gsap.timeline().to(animationCParent.current, {   
+        
       height: "auto",
       duration: 0.5,
       ease: "Expo.easeInOut",
