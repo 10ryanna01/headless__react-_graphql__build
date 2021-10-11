@@ -1,33 +1,31 @@
 import * as React from "react";  
-import { graphql } from "gatsby"; 
-import JobCardList from "../components/JobCardList"; 
-import YearsFilter from "../components/JobsFilter";
-import "../styles/styles.scss";
+import { graphql,  useScrollRestoration   } from "gatsby";
 
- 
+import JobCardList from "../components/JobCardList";
+import YearsFilter from "../components/JobsFilter";
+import Footer from "../components/Footer";
+import "../styles/styles.scss";
 
 // markup
 const IndexPage = ({ data, pageContext, location }) => {
   console.log({ data });
   const countAllJobs = data.jobs.nodes;
  
+ 
+
   return (
-  <>
-
-<YearsFilter activeYear={pageContext.year} activeLocation={pageContext.location}  /> 
-  <main className="results__wrapper">
-
-<JobCardList countAllJobs={countAllJobs} />
-
-</main>
-
-
-
-
-
-    </>  
+    <> 
+      <YearsFilter  activeYear={pageContext.year} activeLocation={pageContext.location} />
+      <main className="results__wrapper" >
+     
+        <JobCardList countAllJobs={countAllJobs} />
+       
+      </main>
+     
+  
+    </>
   );
-}
+};
 
 export default IndexPage;
 

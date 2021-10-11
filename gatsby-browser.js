@@ -23,9 +23,9 @@ import React from "react";
  
  
 // export function shouldUpdateScroll(element, { props }) {
-//   window.scrollTo(0, 0)
-//   const body = document.getElementsByTagName('body')[0]
-//   body.scrollTop = 0
+//   window.scrollTo(0,0)
+//   const scrollbody = document.getElementsByClassName('results__wrapper')[0]
+//   scrollbody.scrollTop = 0
 //   return false
 // }
 

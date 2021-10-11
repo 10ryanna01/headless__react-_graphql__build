@@ -1,66 +1,54 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "gatsby"; 
+
 import gsap from "gsap"; 
 // gsap config toggle for testing
 gsap.config({ nullTargetWarn: false });
-
 
 // =====================================
 //start
 // single job component for use in grid and to sort job by years
 // =====================================
 
- 
 function SingleJobItem({ data, job }) {
-  
-  
-  
   // set refs for animation triggers
+
   let animationC = useRef(null);
   let animationCClose = useRef(null);
-  let animationCParent = useRef(null); 
- 
+  let animationCParent = useRef(null);
 
   // set states for show/hide state hooks
   const [showReadmore, setShowReadmore] = useState(null);
-  const [showSkills, setShowSkills] = useState(null); 
-  
- 
+  const [showSkills, setShowSkills] = useState(null);
+
   // end register if fields are empty
 
-
   let animateReadMore = () => {
-    animationC.current = gsap.timeline().to(animationCParent.current, {   
-        
+    animationC.current = gsap.timeline().to(animationCParent.current, {
       height: "auto",
       duration: 0.5,
       ease: "Expo.easeInOut",
-   
     });
 
     return () => {
       animationC.current.kill();
     };
-  }; 
+  };
 
   const handleonClickReadMore = () => {
     setShowReadmore(!showReadmore);
-    console.log('is open');
-    
+    console.log("is open");
   };
 
   const handleClickOutofBounds = (e) => {
     if (!animationCClose.current.contains(e.target)) {
       setShowReadmore(false);
-      console.log('is closed');
-      
+      console.log("is closed");
     }
-  }; 
+  };
 
   useEffect(() => {
-    
-// check if fields are empty functions 
- 
+    // check if fields are empty functions
+
     animateReadMore();
     if (animationC.current.isActive()) {
       animationC.current.restart();
@@ -71,22 +59,20 @@ function SingleJobItem({ data, job }) {
       document.removeEventListener("mouseup", handleClickOutofBounds);
   }, []);
 
-
-  useEffect(() => { 
-   
+  useEffect(() => {
     if (!showReadmore) {
       animationC.current.reverse();
     } else {
       animationC.current.play();
-    }  
-  }, [showReadmore]); 
- 
-
-
-    
+    }
+  }, [showReadmore]);
 
   return (
-    <div className="ticket"  ref={animationCClose} onClick={handleonClickReadMore} >
+    <div
+      className="ticket"
+      ref={animationCClose}
+      onClick={handleonClickReadMore}
+    >
       <aside className="ticket-sub">
         <h3 className="ticket-sub__title">Admit one</h3>
         <p className="ticket-sub__serial">No 06900666</p>
@@ -149,69 +135,88 @@ function SingleJobItem({ data, job }) {
           </div>
           {/* <!-- company overview profile --> */}
           <div className="ticket-info-referee">
-            <span className="ticket-info-referee__title">Company Profile: </span>
+            <span className="ticket-info-referee__title">
+              Company Profile:{" "}
+            </span>
             <span className="ticket-info-referee__subtitle">
               {job.companyoutline}
             </span>
           </div>
 
-          <div  className="ticket-info-date"  >
-            <div className={`copy__readmore`} ref={animationCParent} >
-            {showReadmore ?
-         
+          <div className="ticket-info-date">
+            <div className={`copy__readmore`} ref={animationCParent}>
+              {showReadmore ? (
+                <div className="icon__plus  minus">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon__svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+              ) : (
+                <div className="icon__plus">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon__svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+              )}
 
-<div className="icon__plus  minus">
-<svg xmlns="http://www.w3.org/2000/svg" class="icon__svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
-</div>
-              :       <div className="icon__plus">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon__svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-      
-               }
-            
-            {/* end icon switch */}
-            
-              <div className={`${showReadmore}`} >
-                <p className="copy__description-role">
-                  <strong className="copy__bold-subtitle">Project Outline: </strong>
-                   <div dangerouslySetInnerHTML={{__html: job.roleoverview}} />
-                </p>
-              
-                <p className="copy__description-role">
-                  <strong className="copy__bold-subtitle">Skills Applied: </strong>
-                  <span dangerouslySetInnerHTML={{__html: job.skillsapplied}}     />
-                </p>
-           
+              {/* end icon switch */}
 
-              </div>           
+              <div className={`${showReadmore}`}>
+                <p className="copy__description-role">
+                  <strong className="copy__bold-subtitle">
+                    Project Outline:{" "}
+                  </strong>
+                  <div dangerouslySetInnerHTML={{ __html: job.roleoverview }} />
+                </p>
+
+                <p className="copy__description-role">
+                  <strong className="copy__bold-subtitle">
+                    Skills Applied:{" "}
+                  </strong>
+                  <span
+                    dangerouslySetInnerHTML={{ __html: job.skillsapplied }}
+                  />
+                </p>
               </div>
+            </div>
           </div>
 
           <div className="ticket-info-date2">
             <p className="copy__barcode-text">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
           </div>
           <div className="ticket-info-misc">
-            
-            <p className="utility--mb-05"><strong>Location</strong></p>
-        
-            <div> {job.joblocation.map((job, index ) => 
-                  <p className="copy__ticket__location">{job.name} </p>      
-            )}</div>
+            <p className="utility--mb-05">
+              <strong>Location</strong>
+            </p>
+
+            <div>
+              {" "}
+              {job.joblocation.map((job, index) => (
+                <p className="copy__ticket__location">{job.name} </p>
+              ))}
+            </div>
           </div>
         </section>
       </div>
@@ -230,6 +235,8 @@ function SingleJobItem({ data, job }) {
           </svg>
         </div>
         <div className="ticket__timeline__line"></div>
+
+     
       </aside>
 
       {/* <!-- close ticket wrapper --> */}
@@ -241,28 +248,35 @@ function SingleJobItem({ data, job }) {
 
 // grid component list of jobs
 export default function JobCardList({ countAllJobs }) {
- 
- 
-
   return (
     <>
       {/* <i>there are {countAllJobs.length} yay in this component list </i> */}
 
       <div className="ticket__wrapper">
-        
-        {countAllJobs
-        .map((job) => (
-          <SingleJobItem job={job} key={job.id} /> 
+        {countAllJobs.map((job) => (
+          <SingleJobItem job={job} key={job.id} />
         ))}
-         <div className="timeline__end" > 
-         <svg xmlns="http://www.w3.org/2000/svg" class="icon__svg" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
-</svg>
+       {/* <div className="timeline__end">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon__svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div> */}
+       
       </div>
-      
-      </div>
-     
+    
 
+      {/* ///add footer here */}
+
+   
     </>
   );
 }

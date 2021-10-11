@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef  } from "react";
 import { graphql, useStaticQuery, Link  } from "gatsby";
+ 
 import gsap from "gsap"; 
 // gsap config toggle for testing
 gsap.config({ nullTargetWarn: false });
+
+
 
 function countJobsInYears(jobs) {
   console.log(jobs);
@@ -114,16 +117,16 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   console.log({ yearsWithCounts });
 //// start filtering click events and animation timings
 
- 
+
+
   let dropdownARef = useRef(null);
   let dropdownBRef = useRef(null);
   let refOutsideclickB = useRef(null);
   let refOutsideclickA = useRef(null);
 
   const animation = useRef(null);
-  const animationB = useRef(null); 
-
-
+  const animationB = useRef(null);  
+  
  
   const [selectedItemYears, setSelectedItemYears] = useState(activeYear);
   //end  drop down  ====  job years =========
@@ -167,10 +170,12 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   const handleItemClick = (id) => {
     selectedItem == id ? setSelectedItem(activeLocation) : setSelectedItem(id);
     setOpen(!isOpen);
+    
   };
   const handleItemClickYears = (id) => {
     selectedItem == id ? setSelectedItemYears(activeYear) : setSelectedItemYears(id);
     setSelectedItemYears(!isOpenYears);
+
   };
 
   // gsap info: https://greensock.com/position-parameter/
@@ -179,6 +184,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   const toggleDropdownYears = (e) => {
     setOpenYears(!isOpenYears);
     // scrollTo('#some-id');
+  
     return false;
   };
 
@@ -192,13 +198,15 @@ export default function YearsFilter({ activeYear, activeLocation }) {
       //  keep false to not trigger global mouse event
       setOpen(false);
       // scrollTo('#some-id');
+   
     }
   };
 
   const handlemyExitDropdownB = (e) => {
     if (!refOutsideclickB.current.contains(e.target)) {
         //  keep false to not trigger global mouse event
-      setOpenYears(false);
+      setOpenYears(false); 
+      
     }
   };
 
@@ -207,14 +215,18 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   ////////// ==========================
 
   useEffect(() => {
+ 
     animatedropdownA();
     if (animation.current.isActive()) {
       animation.current.restart();
     }
 
     document.addEventListener("click", handlemyExitDropdownA);
+    
     return () => {
       document.removeEventListener("click", handlemyExitDropdownA);
+      
+     
     };
   }, []);
 
@@ -287,7 +299,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                     {/* end active anotations */}
                               {/* start dropdown */}
                           
-                              <div className="dropdown" ref={dropdownARef}>
+                              <div className="dropdown" ref={dropdownARef}  id="some-id">
                                 <div
                                   className="dropdown-header"
                                   ref={refOutsideclickA}
