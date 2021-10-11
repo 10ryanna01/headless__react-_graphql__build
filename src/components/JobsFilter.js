@@ -364,7 +364,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                                 {selectedItemYears ? (
                                   <span className="dropdown-header-status">{activeYear}</span>
                                 ) : (
-                                  "View work from all years"
+                                  "filter by years"
                                 )}
                                 <svg
                                   xmlns="https://www.w3.org/2000/svg"
@@ -384,8 +384,8 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
                               <div className={`nav__categories  ${isOpenYears && "open"}`}>
                                 <Link to="/" className="nav__categories__link">
-                                  <span className="copy__cat">show me jobs from all years</span>
-                                  <span className="copy__cat"> ( {jobs.nodes.length} )</span>
+                                  <span className="copy__cat">view all years</span>
+                                  {/* <span className="copy__cat"> ( {jobs.nodes.length} )</span> */}
                                 </Link>
 
                                 {yearsWithCounts
@@ -397,7 +397,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                                     className="nav__categories__link"
                                   >
                                     <span className="copy__cat">{year.name} </span>
-                                    <span className="copy__cat"> ( {year.count} )</span>
+                                    {/* <span className="copy__cat"> ( {year.count} )</span> */}
                                   </Link>
                                 ))}
                               </div>

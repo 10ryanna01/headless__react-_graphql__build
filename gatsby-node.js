@@ -6,84 +6,7 @@ exports.onPostBuild = ({ reporter }) => {
   reporter.info(`Your Gatsby site has been built!`);
 };
 
-// start turn pizza into pages
-  async function turnPizzaIntoPages ({ graphql, actions }) {
-
-  const pizzaTemplate = path.resolve(`./src/templates/Pizza.js`);
-
-  const { data } = await graphql(`
-    query {
-        pizzas: allSanityPizza {
-        nodes {
-          name
-          slug {
-            current
-          }
-        }
-      }
-    }
-  `);
-  console.log(data);
-  
-data.pizzas.nodes.forEach((pizza) => {
-    console.log('creating a page for ', pizza.name)
-
-    actions.createPage({
-        //what is the url for each new page
-        path: `pizza/${pizza.slug.current}`,
-        // which page component is the data being loaded into
-        component: pizzaTemplate,
-        context: {
-            slug: pizza.slug.current,
-
-        }
-
-    })
-
-});
-};
-//end turn pizzas into pages
-
-// startturn toppings into pages
-
-async function turnToppingsIntoPages({graphql, actions}) {
-    console.log("turning the toppings into pages");
-    
-    const toppingTemplate = path.resolve(`./src/pages/pizzasPage.js`);
-
-    const { data } = await graphql(`
-
-     
-    query {
-        toppings: allSanityTopping {
-          nodes {
-            name
-            id
-          }
-        }
-      }
-      
-
-    `); 
-    console.log({data});
-
-    data.toppings.nodes.forEach((topping) =>  {
-        console.log('creating page for topping', topping.name);
-
-        actions.createPage({
-            path: `topping/${topping.name}`,
-            component: toppingTemplate,
-            context:{
-                topping: topping.name, 
-            }
-        });
-    });
-}
-
-//// =========================================
-//// end pizzza stuff 
-/////////======================================
-
+ 
 
 //// =========================================
 //// Start Jobs into pages 
@@ -221,8 +144,7 @@ exports.createPages = async (params) => {
   
     // wait for all promises to be resolved before finishing this function
     await Promise.all([
-        turnPizzaIntoPages(params),
-        turnToppingsIntoPages(params),
+  
 
 
         turnJobIntoPages(params),

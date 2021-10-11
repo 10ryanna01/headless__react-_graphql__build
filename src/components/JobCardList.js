@@ -22,6 +22,9 @@ function SingleJobItem({ data, job }) {
 
   // end register if fields are empty
 
+  var val = Math.floor(1000 + Math.random() * 9000);
+
+
   let animateReadMore = () => {
     animationC.current = gsap.timeline().to(animationCParent.current, {
       height: "auto",
@@ -75,7 +78,7 @@ function SingleJobItem({ data, job }) {
     >
       <aside className="ticket-sub">
         <h3 className="ticket-sub__title">Admit one</h3>
-        <p className="ticket-sub__serial">No 06900666</p>
+        <p className="ticket-sub__serial">No 06900666 </p>
       </aside>
 
       <div className="ticket-main">
