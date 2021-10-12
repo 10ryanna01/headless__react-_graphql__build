@@ -10,8 +10,8 @@ module.exports = {
 
   siteMetadata: {
     title: "My portfolio site",
-    description: "another cool portfolio built in react",
-    siteUrl: "https://www.insightsurfer.net/"
+    description: "another cool portfolio built in react",    
+    siteUrl: "https://insightsurfer.gatsbyjs.io/"
   },
   plugins: [
     {
