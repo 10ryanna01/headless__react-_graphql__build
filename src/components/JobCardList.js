@@ -141,7 +141,7 @@ function SingleJobItem({ data, job }) {
             <span className="ticket-info-referee__title" aria-label="Company Profile">
               Company Profile:{" "}
             </span>
-            <span className="ticket-info-referee__subtitle"  aria-label="Company Profile description">
+            <span className="ticket-info-referee__subtitle">
               {job.companyoutline}
             </span>
           </div>
@@ -191,7 +191,7 @@ function SingleJobItem({ data, job }) {
                   <strong className="copy__bold-subtitle">
                     Project Outline:{" "}
                   </strong>
-                  <span dangerouslySetInnerHTML={{ __html: job.roleoverview }} aria-label="Project Outline Description" />
+                  <span dangerouslySetInnerHTML={{ __html: job.roleoverview }} />
                 </p>
 
                 <p className="copy__description-role"  aria-label=" Skills Applied">
@@ -199,7 +199,7 @@ function SingleJobItem({ data, job }) {
                     Skills Applied:{" "}
                   </strong>
                   <span
-                    dangerouslySetInnerHTML={{ __html: job.skillsapplied }}  aria-label="Project Outline Skills Applied"
+                    dangerouslySetInnerHTML={{ __html: job.skillsapplied }}
                   />
                 </p>
               </div>
@@ -210,7 +210,7 @@ function SingleJobItem({ data, job }) {
             <p className="copy__barcode-text">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
           </div>
           <div className="ticket-info-misc">
-            <p className="utility--mb-05"  aria-label="Location Heading">
+            <p className="utility--mb-05">
               <strong>Location</strong>
             </p>
 
