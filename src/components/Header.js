@@ -17,11 +17,11 @@ export default function PageHeader({
                 alt="profile photo of me"
               />
 
-              <a
+              <button
                 to="https://www.insightsurfer.net/RyannAllahiqCV.pdf"
                 className="resumelink header__contact__social__link "
                 title="Download My Resume (PDF)"
-                target="_blank" rel="noopener noreferrer" role="cta" aria-label="Download My Resume (PDF)"
+                target="_blank" rel="noopener noreferrer" aria-label="Download My Resume (PDF)"
               >
                 grab my Resume
                 <svg
@@ -39,7 +39,7 @@ export default function PageHeader({
                     d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
                   />
                 </svg>
-              </a>
+              </button>
             </p>
 
             <div className="header__summary">

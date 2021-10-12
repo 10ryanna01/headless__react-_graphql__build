@@ -168,12 +168,12 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   };
 
   const handleItemClick = (id) => {
-    selectedItem == id ? setSelectedItem(activeLocation) : setSelectedItem(id);
+    selectedItem === id ? setSelectedItem(activeLocation) : setSelectedItem(id);
     setOpen(!isOpen);
     
   };
   const handleItemClickYears = (id) => {
-    selectedItem == id ? setSelectedItemYears(activeYear) : setSelectedItemYears(id);
+    selectedItem === id ? setSelectedItemYears(activeYear) : setSelectedItemYears(id);
     setSelectedItemYears(!isOpenYears);
 
   };
@@ -268,12 +268,11 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                    
                               {/* start dropdown */}
                           
-                              <div className="dropdown" ref={dropdownARef}  aria-label="filter by location" aria-expanded="false">
+                              <div className="dropdown" ref={dropdownARef}  aria-label="filter by location" aria-expanded="false"   >
                                 <div
                                   className="dropdown-header"
                                   ref={refOutsideclickA}
-                                  onClick={toggleDropdownLocation}
-                                  role="menuitem">
+                                  onClick={toggleDropdownLocation} >
                                   {selectedItem ? (
                                     <span className="dropdown-header-status"  aria-label="filter location status" >{activeLocation}</span>
                                   ) : (
@@ -324,12 +323,11 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                               </div>
 
                                   {/* start dropdown */}
-                            <div className="dropdown" ref={dropdownBRef}  aria-label="filter by year" aria-expanded="false">
+                            <div className="dropdown" ref={dropdownBRef}  aria-label="filter by year" aria-expanded="false" >
                               <div
                                 className="dropdown-header" aria-label="filter year status"
                                 ref={refOutsideclickB}
-                                onClick={toggleDropdownYears} role="menuitem"
-                              >
+                                onClick={toggleDropdownYears} >
                                 {selectedItemYears ? (
                                   <span className="dropdown-header-status">{activeYear}</span>
                                 ) : (

@@ -75,7 +75,7 @@ function SingleJobItem({ data, job }) {
       className="ticket"
       ref={animationCClose}
       onClick={handleonClickReadMore}
-    role="search result card" >
+      aria-label="search result card" >
       <aside className="ticket-sub">
         <h3 className="ticket-sub__title">Admit one</h3>
         <p className="ticket-sub__serial">No 06900666 </p>

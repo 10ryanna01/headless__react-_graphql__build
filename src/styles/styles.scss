@@ -113,6 +113,10 @@ body {
 // Typography
 // ============================
 .copy {
+&__sr{
+visibility: hidden;
+}
+
   &__headerinfo-text {
     font-family: var(--font-misc);
     font-size: 1rem;
@@ -452,9 +456,15 @@ body {
 .header__wrapper {
   .resumelink {
     text-transform: none;
-    width: 100%;
+    width: fit-content;
     align-items: center;
     text-transform: capitalize;
+    display: flex;
+    flex-flow: row;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+   
     @extend .copy__headerinfo-text;
     gap: 0.5rem; 
     svg{ 

@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer__content"  role="content info">
+      <div className="footer__content"  aria-label="Built with React.js, Gatsby.js, Javascript and SCSS">
        <h4  aria-label="content title" >built with</h4>
         <svg className="footer__content__icon" viewBox="0 0 128 128" alt="React Logo">
           <g fill="#61DAFB">

@@ -1,9 +1,8 @@
 import * as React from "react";  
-import { graphql,  useScrollRestoration   } from "gatsby";
+import { graphql } from "gatsby";
 
 import JobCardList from "../components/JobCardList";
 import YearsFilter from "../components/JobsFilter";
-import Footer from "../components/Footer";
 import "../styles/styles.scss";
 
 // markup
@@ -15,8 +14,11 @@ const IndexPage = ({ data, pageContext, location }) => {
 
   return (
     <> 
+
+      <title className="copy__sr">ryann al-lahiq experienced Front-End Developer based in London, UK</title>
+
       <YearsFilter  activeYear={pageContext.year} activeLocation={pageContext.location} />
-      <main className="results__wrapper"  aria-label="filter search results">
+      <main className="results__wrapper" aria-label="filter search results">
      
         <JobCardList countAllJobs={countAllJobs} />
        
