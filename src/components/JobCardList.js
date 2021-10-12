@@ -91,17 +91,17 @@ function SingleJobItem({ data, job }) {
             </h4>
           </div>
           <div className="ticket-seat-box">
-            <p className="ticket-seat-box__subtitle">Role</p>
-            <h4 className="ticket-seat-box__title">Contract</h4>
+            <p className="ticket-seat-box__subtitle" aria-label="Job Role Heading">Role</p>
+            <h4 className="ticket-seat-box__title" aria-label="Job Role Type">Contract</h4>
           </div>
           <div className="ticket-seat-box">
-            <p className="ticket-seat-box__subtitle">Skill</p>
-            <h4 className="ticket-seat-box__title">Front-End</h4>
+            <p className="ticket-seat-box__subtitle"  aria-label="Job Role Skill Heading">Skill</p>
+            <h4 className="ticket-seat-box__title" aria-label="Job Role Type ">Front-End</h4>
           </div>
         </section>
         <section className="ticket-info">
           <div className="ticket-info-brand">
-            <h3 className="copy__job-title">{job.namecompany}</h3>
+            <h3 className="copy__job-title" aria-label="company name" >{job.namecompany}</h3>
             {/* <!-- <h3 className="copy__job-title">asdfasfSpring Studios</h3> --> */}
           </div>
           <div className="ticket-info-brawler">
@@ -141,7 +141,7 @@ function SingleJobItem({ data, job }) {
             <span className="ticket-info-referee__title" aria-label="Company Profile">
               Company Profile:{" "}
             </span>
-            <span className="ticket-info-referee__subtitle">
+            <span className="ticket-info-referee__subtitle"  aria-label="Company Profile description">
               {job.companyoutline}
             </span>
           </div>
@@ -191,7 +191,7 @@ function SingleJobItem({ data, job }) {
                   <strong className="copy__bold-subtitle">
                     Project Outline:{" "}
                   </strong>
-                  <span dangerouslySetInnerHTML={{ __html: job.roleoverview }} />
+                  <span dangerouslySetInnerHTML={{ __html: job.roleoverview }} aria-label="Project Outline Description" />
                 </p>
 
                 <p className="copy__description-role"  aria-label=" Skills Applied">
@@ -199,7 +199,7 @@ function SingleJobItem({ data, job }) {
                     Skills Applied:{" "}
                   </strong>
                   <span
-                    dangerouslySetInnerHTML={{ __html: job.skillsapplied }}
+                    dangerouslySetInnerHTML={{ __html: job.skillsapplied }}  aria-label="Project Outline Skills Applied"
                   />
                 </p>
               </div>
@@ -210,7 +210,7 @@ function SingleJobItem({ data, job }) {
             <p className="copy__barcode-text">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
           </div>
           <div className="ticket-info-misc">
-            <p className="utility--mb-05">
+            <p className="utility--mb-05"  aria-label="Location Heading">
               <strong>Location</strong>
             </p>
 
