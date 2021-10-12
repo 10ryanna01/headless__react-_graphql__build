@@ -18,7 +18,7 @@ const IndexPage = ({ data, pageContext, location }) => {
         <Helmet>
           <meta charSet="utf-8" />
           <title>ryann al-lahiq experienced Front-End Developer based in London, UK</title>
-          <link rel="canonical" href="https://www.insightsurfer.net/" />
+          <link rel="canonical" href="https://insightsurfer.gatsbyjs.io/" />
         </Helmet>
  
       <YearsFilter  activeYear={pageContext.year} activeLocation={pageContext.location} />
