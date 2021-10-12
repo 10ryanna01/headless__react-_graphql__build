@@ -454,6 +454,9 @@ visibility: hidden;
 .errorpage{
   @extend .inline__image;
   opacity: 1;
+    @media (max-width: 640px) {
+      display: block;
+    }
 }
 
 // =======================
