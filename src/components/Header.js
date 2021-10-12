@@ -30,10 +30,10 @@ export default function PageHeader({
               />
 
               <Link
-                to="/basePage"
+                to="https://www.insightsurfer.net/RyannAllahiqCV.pdf"
                 className="resumelink header__contact__social__link "
                 title="Download My Resume (PDF)"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
               >
                 grab my Resume
                 <svg
@@ -82,9 +82,9 @@ export default function PageHeader({
                 </a>
 
                 <a
-                  href="#/"
+                  href="https://github.com/10ryanna01/headless__react-_graphql__build"
                   title="Checkout This Build On My Github"
-                  className="header__contact__social__link"
+                  className="header__contact__social__link" rel="noopener noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -101,8 +101,8 @@ export default function PageHeader({
                 <a
                   href="https://open.spotify.com/playlist/5XwD3GdQDrsoYiQC43SDXZ"
                   title="Coding Music Playlist || Music To Code To"
-                  target="_blank"
-                  className="header__contact__social__link"
+                  target="_blank" rel="noopener noreferrer"
+                  className="header__contact__social__link" 
                 >
                   <svg
                     version="1.1"
