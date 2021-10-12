@@ -57,7 +57,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {
-        domains: ['https://insightsurfer.net/react/', 'https://www.insightsurfer.net/react/'],
+        domains: ['https://insightsurfer.gatsbyjs.io/', 'https://www.insightsurfer.gatsbyjs.io/'],
       },
     },
 
