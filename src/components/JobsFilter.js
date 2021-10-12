@@ -261,52 +261,21 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
   return (
     <>
-      <div>        
-        {/* <Dropdown   dddata={joblocation, locationsWithCounts, location }  /> */}
-      </div>
-     
-
-
-
+  
         {/* start grid */}
-        <section className="filter__wrapper"> 
-
-                            {/* <p>
-                              the active ingredient/Location would be 
-                              <strong>{activeLocation}</strong>
-
-                            </p> */}
-                                {/* <h1>this is the Years list to choose from</h1>
-                          <p>
-                            the active ingredient/year would be <strong>{activeYear}</strong>
-                          </p> */}
-                          {/* <div className="d__grid">
-                            <Link to="/basePage">
-                              <span className="copy__cat">All/latest </span>
-                              <span className="copy__cat"> ( {jobs.nodes.length} )</span>
-                            </Link>
-
-                        
-                          </div> */}
-
-                              {/* <Link to="/basePage">
-                                <span className="copy__cat">All Locations </span>
-
-                                <span className="copy__cat"> ( {joblocation.nodes.length} )</span>
-                              </Link> */}
-
-
-                    {/* end active anotations */}
+        <nav role="navigation" aria-label="primary" >
+        <section className="filter__wrapper">  
+                   
                               {/* start dropdown */}
                           
-                              <div className="dropdown" ref={dropdownARef}  id="some-id">
+                              <div className="dropdown" ref={dropdownARef}  aria-label="filter by location"  role="filter location button">
                                 <div
                                   className="dropdown-header"
                                   ref={refOutsideclickA}
                                   onClick={toggleDropdownLocation}
                                 >
                                   {selectedItem ? (
-                                    <span className="dropdown-header-status">{activeLocation}</span>
+                                    <span className="dropdown-header-status"  aria-label="filter location status">{activeLocation}</span>
                                   ) : (
                                     "View all Locations"
                                   )}
@@ -355,9 +324,9 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                               </div>
 
                                   {/* start dropdown */}
-                            <div className="dropdown" ref={dropdownBRef}>
+                            <div className="dropdown" ref={dropdownBRef}  aria-label="filter by year"  role="filter year button">
                               <div
-                                className="dropdown-header"
+                                className="dropdown-header" aria-label="filter year status"
                                 ref={refOutsideclickB}
                                 onClick={toggleDropdownYears}
                               >
@@ -406,7 +375,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                            
                             {/* close grid */}
                 </section>
-   
+                </nav>
    
     
     </>

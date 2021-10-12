@@ -16,7 +16,7 @@ const IndexPage = ({ data, pageContext, location }) => {
   return (
     <> 
       <YearsFilter  activeYear={pageContext.year} activeLocation={pageContext.location} />
-      <main className="results__wrapper" >
+      <main className="results__wrapper" role="search results" aria-label="filter search results">
      
         <JobCardList countAllJobs={countAllJobs} />
        

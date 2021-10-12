@@ -147,7 +147,7 @@ function SingleJobItem({ data, job }) {
           </div>
 
           <div className="ticket-info-date">
-            <div className={`copy__readmore`} ref={animationCParent}>
+            <div className={`copy__readmore`} ref={animationCParent} aria-pressed="false" role="button">
               {showReadmore ? (
                 <div className="icon__plus  minus">
                   <svg
@@ -186,7 +186,7 @@ function SingleJobItem({ data, job }) {
 
               {/* end icon switch */}
 
-              <div className={`${showReadmore}`}>
+              <div className={`${showReadmore}`} >
                 <p className="copy__description-role">
                   <strong className="copy__bold-subtitle">
                     Project Outline:{" "}

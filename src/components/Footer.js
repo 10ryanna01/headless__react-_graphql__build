@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" role="footer">
       <div className="footer__content">
-        built with
+       <h4>built with</h4>
         <svg className="footer__content__icon" viewBox="0 0 128 128" alt="React Logo">
           <g fill="#61DAFB">
             <circle cx="64" cy="47.5" r="9.3"></circle>

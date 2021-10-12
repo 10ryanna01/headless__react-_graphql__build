@@ -613,7 +613,8 @@ body {
 
     &__social {
       @extend .utility---d-flex-row;
-
+      top: 31px;
+      position: relative;
       @media (max-width: 640px) {
         position: absolute;
         top: 120%;

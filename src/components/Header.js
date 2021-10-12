@@ -1,20 +1,8 @@
-import React from "react";
-import { Link, navigate } from "gatsby";
-import { graphql } from "gatsby";
+import React from "react";  
 export default function PageHeader({
-  activeYear,
-  activeLocation,
-  data,
-  pageContext,
+ 
 }) {
-  //   const handleChangeOption = (e) => {
-  //     if (e.target.value === "0") {
-  //       navigate("/basePage");
-  //     }
-  //     if (e.target.value === "1") {
-  //       navigate("/");
-  //     }
-  //   };
+  
   return (
     <>
       <header className="header__wrapper">
@@ -29,11 +17,11 @@ export default function PageHeader({
                 alt="profile photo of me"
               />
 
-              <Link
+              <a
                 to="https://www.insightsurfer.net/RyannAllahiqCV.pdf"
                 className="resumelink header__contact__social__link "
                 title="Download My Resume (PDF)"
-                target="_blank" rel="noopener noreferrer"
+                target="_blank" rel="noopener noreferrer" role="cta" aria-label="Download My Resume (PDF)"
               >
                 grab my Resume
                 <svg
@@ -51,17 +39,15 @@ export default function PageHeader({
                     d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
                   />
                 </svg>
-              </Link>
+              </a>
             </p>
 
             <div className="header__summary">
-              <p className="copy__headerinfo-text">ryann al-lahiq </p>
+              <h1 className="copy__headerinfo-text" role="heading">ryann al-lahiq</h1>
 
-              <p className="copy__headerinfo-text">
-                experienced Front-End Developer{" "}
-              </p>
+              <h2 className="copy__headerinfo-text">experienced Front-End Developer</h2>
 
-              <p className="copy__headerinfo-text">based in London, UK</p>
+              <h3 className="copy__headerinfo-text">based in London, UK</h3>
               <div className="header__contact__social">
                 <a
                   href="https://uk.linkedin.com/in/ryannwithtwons"
