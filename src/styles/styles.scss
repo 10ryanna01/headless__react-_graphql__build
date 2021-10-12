@@ -443,11 +443,11 @@ visibility: hidden;
   height: 100vh;
   object-fit: cover;
   display: block;
-  @media (max-width: 640px) {
-     display: none;
+  // @media (max-width: 640px) {
+  //    display: none;
 
-     background:url("../images/image_mobilefirst.jpg"); 
-  }
+  //    background:url("../images/image_mobilefirst.jpg"); 
+  // }
   
 } 
  
