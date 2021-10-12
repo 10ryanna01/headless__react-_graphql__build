@@ -442,8 +442,15 @@ visibility: hidden;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-}
+  display: block;
+  @media (max-width: 640px) {
+     display: none;
 
+     background:url("../images/image_mobilefirst.jpg"); 
+  }
+  
+} 
+ 
 .errorpage{
   @extend .inline__image;
   opacity: 1;
@@ -788,6 +795,9 @@ visibility: hidden;
   }
 }
 
+.nav__categories [aria-current="page"]{
+  border-left: 3px solid pink;
+}
 .nav__categories {
   display: block;
   gap: 1rem;
