@@ -14,7 +14,8 @@ export default function PageHeader({
               <img
                 src="https://insightsurfer.net/gulp/MicrositePortfolio/web/resources/images/profile.png"
                 className="header__headshot__img"
-                alt="profile photo of me"
+                alt="profile photo of me" 
+                width="100%" height="auto"
               />
 
               <button
