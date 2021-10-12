@@ -53,7 +53,7 @@ export default function PageHeader({
                   href="https://uk.linkedin.com/in/ryannwithtwons"
                   title="Get In Touch On My LinkedIn"
                   target="_blank"
-                  className="header__contact__social__link"
+                  className="header__contact__social__link" rel="noopener noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
