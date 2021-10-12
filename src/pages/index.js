@@ -1,6 +1,6 @@
 import * as React from "react";  
 import { graphql } from "gatsby";
-
+import { Helmet } from "react-helmet"
 import JobCardList from "../components/JobCardList";
 import YearsFilter from "../components/JobsFilter";
 import "../styles/styles.scss";
@@ -15,8 +15,12 @@ const IndexPage = ({ data, pageContext, location }) => {
   return (
     <> 
 
-      <title className="copy__sr">ryann al-lahiq experienced Front-End Developer based in London, UK</title>
-
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>ryann al-lahiq experienced Front-End Developer based in London, UK</title>
+          <link rel="canonical" href="https://www.insightsurfer.net/" />
+        </Helmet>
+ 
       <YearsFilter  activeYear={pageContext.year} activeLocation={pageContext.location} />
       <main className="results__wrapper" aria-label="filter search results">
      
