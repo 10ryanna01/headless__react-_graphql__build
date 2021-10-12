@@ -15,7 +15,7 @@ const IndexPage = ({ data, pageContext, location }) => {
   return (
     <> 
 
-        <Helmet htmlAttributes={{ lang : 'en' }}>
+        <Helmet htmlAttributes={{ lang : "en" }}>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" /> 
           <meta name="description" content="Front-End Developer Portfolio Website. Front-End Developer based in London, UK" />

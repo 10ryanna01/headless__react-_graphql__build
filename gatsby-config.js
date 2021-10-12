@@ -42,9 +42,7 @@ module.exports = {
     "gatsby-plugin-smoothscroll",
     "gatsby-plugin-transition-link",
     "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp", 
-    "gatsby-plugin-minify", 
-    
+    "gatsby-transformer-sharp",
     
     { 
       resolve: "gatsby-source-filesystem",
