@@ -75,7 +75,7 @@ function SingleJobItem({ data, job }) {
       className="ticket"
       ref={animationCClose}
       onClick={handleonClickReadMore}
-    >
+    role="search result card" >
       <aside className="ticket-sub">
         <h3 className="ticket-sub__title">Admit one</h3>
         <p className="ticket-sub__serial">No 06900666 </p>
@@ -106,7 +106,7 @@ function SingleJobItem({ data, job }) {
           </div>
           <div className="ticket-info-brawler">
             <div className="brawler">
-              <span className="brawler__subtitle">From</span>
+              <span className="brawler__subtitle"  aria-label="Contract Job Date Duraction from Month ">From</span>
               <span className="brawler__title">
                 {job.startmonth.map((job) => job.name)}
               </span>
@@ -131,14 +131,14 @@ function SingleJobItem({ data, job }) {
             </div>
             <div className="brawler">
               <span className="brawler__subtitle">To</span>
-              <span className="brawler__title">
+              <span className="brawler__title" aria-label="Contract Job Date Duraction To  Month">
                 {job.endingmonth.map((job) => job.name)}
               </span>
             </div>
           </div>
           {/* <!-- company overview profile --> */}
           <div className="ticket-info-referee">
-            <span className="ticket-info-referee__title">
+            <span className="ticket-info-referee__title" aria-label="Company Profile">
               Company Profile:{" "}
             </span>
             <span className="ticket-info-referee__subtitle">
@@ -187,14 +187,14 @@ function SingleJobItem({ data, job }) {
               {/* end icon switch */}
 
               <div className={`${showReadmore}`} >
-                <p className="copy__description-role">
+                <p className="copy__description-role" aria-label="Project Outline">
                   <strong className="copy__bold-subtitle">
                     Project Outline:{" "}
                   </strong>
-                  <div dangerouslySetInnerHTML={{ __html: job.roleoverview }} />
+                  <span dangerouslySetInnerHTML={{ __html: job.roleoverview }} />
                 </p>
 
-                <p className="copy__description-role">
+                <p className="copy__description-role"  aria-label=" Skills Applied">
                   <strong className="copy__bold-subtitle">
                     Skills Applied:{" "}
                   </strong>
@@ -257,27 +257,9 @@ export default function JobCardList({ countAllJobs }) {
 
       <div className="ticket__wrapper">
         {countAllJobs.map((job) => (
-          <SingleJobItem job={job} key={job.id} />
-        ))}
-       {/* <div className="timeline__end">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon__svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div> */}
-       
-      </div>
-    
-
-      {/* ///add footer here */}
+          <SingleJobItem job={job} key={job.id} role="job search result card" />
+        ))}  
+      </div> 
 
    
     </>

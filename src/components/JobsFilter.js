@@ -268,14 +268,14 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                    
                               {/* start dropdown */}
                           
-                              <div className="dropdown" ref={dropdownARef}  aria-label="filter by location"  role="filter location button">
+                              <div className="dropdown" ref={dropdownARef}  aria-label="filter by location" aria-expanded="false">
                                 <div
                                   className="dropdown-header"
                                   ref={refOutsideclickA}
                                   onClick={toggleDropdownLocation}
-                                >
+                                  role="menuitem">
                                   {selectedItem ? (
-                                    <span className="dropdown-header-status"  aria-label="filter location status">{activeLocation}</span>
+                                    <span className="dropdown-header-status"  aria-label="filter location status" >{activeLocation}</span>
                                   ) : (
                                     "View all Locations"
                                   )}
@@ -299,7 +299,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                                   <Link
                                     to="/"
                                     className="nav__categories__link"
-                                    role="header bread crumb nav link"
+                                    
                                   >
                                     <span className="copy__cat">show me all Locations</span>
                                     <span className="copy__cat">
@@ -324,11 +324,11 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                               </div>
 
                                   {/* start dropdown */}
-                            <div className="dropdown" ref={dropdownBRef}  aria-label="filter by year"  role="filter year button">
+                            <div className="dropdown" ref={dropdownBRef}  aria-label="filter by year" aria-expanded="false">
                               <div
                                 className="dropdown-header" aria-label="filter year status"
                                 ref={refOutsideclickB}
-                                onClick={toggleDropdownYears}
+                                onClick={toggleDropdownYears} role="menuitem"
                               >
                                 {selectedItemYears ? (
                                   <span className="dropdown-header-status">{activeYear}</span>
@@ -364,6 +364,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
                                     to={`/year/${year.name}`}
                                     key={year.id}
                                     className="nav__categories__link"
+                                    title={`${year.name} `}
                                   >
                                     <span className="copy__cat">{year.name} </span>
                                     {/* <span className="copy__cat"> ( {year.count} )</span> */}
