@@ -15,9 +15,13 @@ const IndexPage = ({ data, pageContext, location }) => {
   return (
     <> 
 
-        <Helmet>
+        <Helmet htmlAttributes={{ lang : 'en' }}>
           <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>ryann al-lahiq experienced Front-End Developer based in London, UK</title>
+          <meta name="Front End Developer Portfolio Website" content="ryann al-lahiq experienced Front-End Developer based in London, UK" />
+         
+          <meta keywords="Front End Developer, Gatsby, React, Javasctipy, Portfolio, Developer" />
           <link rel="canonical" href="https://insightsurfer.gatsbyjs.io/" />
         </Helmet>
  
