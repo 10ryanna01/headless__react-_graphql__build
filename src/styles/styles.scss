@@ -40,6 +40,7 @@ $copy__light: #ffffff;
 $bg__golden: goldenrod;
 $copy__dark: #5c6bc0;
 $copy__link: #ff006a;
+$bg__lightgreen: lightgreen;
 
 .checkerdflag {
   --square-size: 50px;
@@ -348,6 +349,12 @@ visibility: hidden;
     flex-direction: row;
     align-content: flex-start;
     gap: 10px;
+
+    &:hover{
+      color: $bg__golden;
+      fill: $bg__golden;
+      transition: all ease-in-out 0.5s;
+    }
   }
 }
 
@@ -366,7 +373,7 @@ visibility: hidden;
 
   &__link{
     display: block;
-    color: lightgreen;
+    color: $bg__lightgreen;
     &:hover{
       color: $bg__golden;
     }
@@ -562,8 +569,8 @@ visibility: hidden;
       &:hover {
         width: 400px;
         transition: all 0.5s ease-in-out;
-        animation: animate 1s linear 1;
-        perspective: 800px;
+        // animation: animate 1s linear 1;
+        // perspective: 800px;
         border-color: $bg__golden;
       }
 
@@ -792,7 +799,8 @@ visibility: hidden;
 }
 
 .nav__categories [aria-current="page"]{
-  border-left: 3px solid pink;
+  background: $bg__lightgreen;
+  
 }
 .nav__categories {
   display: block;
@@ -867,7 +875,7 @@ visibility: hidden;
 
 
 &:focus, &:hover, &:active, &:focus-within{
-  border-left: 10px solid lightgreen;
+  border-left: 10px solid  $bg__lightgreen;
 }
 
 
