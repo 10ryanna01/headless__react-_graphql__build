@@ -64,7 +64,7 @@ module.exports = {
       options: {
         projectId: '7r4duhdc',
         dataset: 'dbtimelineportfolio',
-        watchMode: false,
+        watchMode: true,
         token: process.env.SANITY_TOKEN,
       },
     },
