@@ -20,8 +20,8 @@ export default function PageHeader({
                 width="100%" height="100%"
               />
 
-              <button
-                to="https://www.insightsurfer.net/RyannAllahiqCV.pdf"
+              <a
+                href="https://www.insightsurfer.net/RyannAllahiqCV.pdf"
                 className="resumelink header__contact__social__link "
                 title="Download My Resume (PDF)"
                 target="_blank" rel="noopener noreferrer" aria-label="Download My Resume (PDF)"
@@ -42,7 +42,7 @@ export default function PageHeader({
                     d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
                   />
                 </svg>
-              </button>
+              </a>
             </p>
 
             <div className="header__summary">

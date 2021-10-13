@@ -58,18 +58,11 @@ $copy__link: #ff006a;
 html,
 body {
   scroll-behavior: smooth;
-  font-size: 1rem;
-  // //   background: url("https://source.unsplash.com/2000x2000/?travel,festival,beach,road");
-  //   background-image: image-set( "https://source.unsplash.com/1200x1200/?travel,festival,beach,road" 1x);
-  //    background-attachment: fixed;
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
+  font-size: 1rem; 
   box-sizing: border-box;
   // overflow-y: scroll;
   // overflow-y: overlay;
-  overflow: hidden;
-  
+  overflow: hidden;  
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
