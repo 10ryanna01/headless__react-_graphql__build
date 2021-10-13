@@ -15,8 +15,7 @@ export default function PageHeader({
             <p className="header__headshot">
               <img
                 src={profileImg}
-                className="header__headshot__img"
-                alt="profile photo of me" 
+                className="header__headshot__img" 
                 width="100%" height="100%"
               />
 
@@ -46,7 +45,7 @@ export default function PageHeader({
             </p>
 
             <div className="header__summary">
-              <h1 className="copy__headerinfo-text" role="heading">ryann al-lahiq</h1>
+              <h1 className="copy__headerinfo-text">ryann al-lahiq</h1>
 
               <h2 className="copy__headerinfo-text">experienced Front-End Developer</h2>
 
