@@ -1,4 +1,6 @@
 import React from "react";  
+import profileImg from '../images/profile.png';
+
 export default function PageHeader({
  
 }) {
@@ -12,10 +14,10 @@ export default function PageHeader({
 
             <p className="header__headshot">
               <img
-                src="https://insightsurfer.net/gulp/MicrositePortfolio/web/resources/images/profile.png"
+                src={profileImg}
                 className="header__headshot__img"
                 alt="profile photo of me" 
-                width="100%" height="auto"
+                width="100%" height="100%"
               />
 
               <button

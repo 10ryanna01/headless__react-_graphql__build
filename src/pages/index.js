@@ -18,8 +18,8 @@ const IndexPage = ({ data, pageContext, location }) => {
         <Helmet htmlAttributes={{ lang : "en" }}>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-          <meta name="description" content="Front-End Developer Portfolio Website. Front-End Developer based in London, UK" />
-          <title>ryann al-lahiq experienced Front-End Developer based in London, UK</title>
+          <meta name="description" content="Front-End Developer  Portfolio Timeline" />
+          <title>Ryann's Front-End Developer Portfolio Timeline</title>
           <meta keywords="Front End Developer, Gatsby, React, Javasctipy, Portfolio, Developer" />
         </Helmet>
  
