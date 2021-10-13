@@ -48,7 +48,7 @@ module.exports = {
     "gatsby-plugin-transition-link",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-  
+    "gatsby-plugin-minify",
     
     { 
       resolve: "gatsby-source-filesystem",
@@ -70,7 +70,7 @@ module.exports = {
       options: {
         projectId: '7r4duhdc',
         dataset: 'dbtimelineportfolio',
-        watchMode: true,
+        watchMode: false,
         token: process.env.SANITY_TOKEN,
       },
     },
