@@ -48,7 +48,7 @@ module.exports = {
     "gatsby-plugin-transition-link",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-minify",
+  
     
     { 
       resolve: "gatsby-source-filesystem",
