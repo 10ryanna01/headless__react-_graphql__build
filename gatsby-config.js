@@ -33,13 +33,7 @@ module.exports = {
       },
      
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-    
-    options: {
-      precachePages: [`/`],
-    },
-  },
+    "gatsby-plugin-offline",
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
