@@ -48,7 +48,29 @@ module.exports = {
     "gatsby-plugin-transition-link",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-minify",
+    {
+      resolve: "gatsby-plugin-minify-html",
+      options: {
+        debug: true, // debug optional, default false
+        config: {
+          // Enabled default by this plugin
+          collapseWhitespace: true,
+          minifyCSS: true,
+          minifyJS: true,
+          removeComments: true,
+          removeScriptTypeAttributes: false,
+          removeStyleLinkTypeAttributes: false,
+          // Disabled default by html-minifier-terser
+          sortAttributes: true,
+          useShortDoctype: true
+        }
+      }
+    },
+
+    {
+      resolve: "gatsby-plugin-brotli",
+     
+    },
     
     { 
       resolve: "gatsby-source-filesystem",
