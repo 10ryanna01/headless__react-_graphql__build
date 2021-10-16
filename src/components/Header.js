@@ -16,7 +16,7 @@ export default function PageHeader({
               <img
                 src={profileImg}
                 className="header__headshot__img" 
-                width="100%" height="100%"
+                width="100%" height="100%" alt="Profile Photo of Meee"
               />
 
               <a

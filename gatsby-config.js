@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
         name: "myportfoliotest",
         short_name: "MPT", 
@@ -37,9 +37,7 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-smoothscroll",
-    "gatsby-plugin-transition-link",
+    "gatsby-plugin-sitemap",  
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     
@@ -53,21 +51,20 @@ module.exports = {
       __key: "images",
     },
     {
-      resolve: 'gatsby-plugin-preconnect',
+      resolve: "gatsby-plugin-preconnect",
       options: {
         domains: ['https://insightsurfer.gatsbyjs.io/', 'https://www.insightsurfer.gatsbyjs.io/'],
       },
     },
 
     {
-      resolve: 'gatsby-source-sanity',
+      resolve: "gatsby-source-sanity",
       options: {
         projectId: '7r4duhdc',
         dataset: 'dbtimelineportfolio',
-        watchMode: true,
+        watchMode: false,
         token: process.env.SANITY_TOKEN,
       },
-    },
-   
+    }, 
   ],
 };

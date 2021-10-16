@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, memo } from "react";
 
 import gsap from "gsap"; 
 // gsap config toggle for testing
@@ -9,7 +9,7 @@ gsap.config({ nullTargetWarn: false });
 // single job component for use in grid and to sort job by years
 // =====================================
 
-function SingleJobItem({ data, job }) {
+function SingleJobItem  ({ data, job }) {
   // set refs for animation triggers
 
   let animationC = useRef(null);
@@ -22,7 +22,7 @@ function SingleJobItem({ data, job }) {
 
   // end register if fields are empty
 
-  var val = Math.floor(1000 + Math.random() * 9000);
+  const val = Math.floor(1000 + Math.random() * 9000);
 
 
   let animateReadMore = () => {
@@ -71,6 +71,7 @@ function SingleJobItem({ data, job }) {
   }, [showReadmore]);
 
   return (
+    <>
     <div
       className="ticket"
       ref={animationCClose}
@@ -244,6 +245,7 @@ function SingleJobItem({ data, job }) {
 
       {/* <!-- close ticket wrapper --> */}
     </div>
+    </>
   );
 }
 // =====================================
@@ -265,3 +267,4 @@ export default function JobCardList({ countAllJobs }) {
     </>
   );
 }
+export const MemoizeJobCardList = React.memo(JobCardList);
