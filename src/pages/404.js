@@ -1,5 +1,5 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
+import { Link } from "gatsby";
 
 
 
@@ -9,6 +9,7 @@ const NotFoundPage = () => {
     <main className="utility__alert-container" role="error page">
            <img
           className="errorpage"
+          alt="error 404 image"
           src="https://images.unsplash.com/photo-1587226513115-f1e3439f1a35?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1492&q=80"
         />
         

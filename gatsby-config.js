@@ -17,8 +17,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "myportfoliotest",
-        short_name: "MPT", 
+        name: "myportfolio",
+        short_name: "ReactPortfolio", 
         start_url: "/",
         background_color: "#6b37bf",
         theme_color: "#6b37bf",
@@ -35,6 +35,16 @@ module.exports = {
     },
     "gatsby-plugin-offline",
     "gatsby-plugin-sass",
+      //minify class names
+      {
+        resolve: `gatsby-plugin-minify-classnames`,
+        options: {
+          dictionary: 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789',
+          enable: process.env.NODE_ENV === 'true',
+          prefix: 'mgs',
+          sufix: ''
+        },
+      },
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",  
@@ -56,6 +66,8 @@ module.exports = {
         domains: ['https://insightsurfer.gatsbyjs.io/', 'https://www.insightsurfer.gatsbyjs.io/'],
       },
     },
+
+  
 
     {
       resolve: "gatsby-source-sanity",

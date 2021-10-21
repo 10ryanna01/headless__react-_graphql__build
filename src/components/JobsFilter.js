@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef  } from "react";
-import { graphql, useStaticQuery, Link  } from "gatsby";
- 
-import gsap from "gsap"; 
+import React, { useState, useEffect, useRef } from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
+
+import gsap from "gsap";
 // gsap config toggle for testing
 gsap.config({ nullTargetWarn: false });
-
-
 
 function countJobsInYears(jobs) {
   console.log(jobs);
@@ -99,13 +97,12 @@ export default function YearsFilter({ activeYear, activeLocation }) {
           endingmonth {
             id
             name
-          } 
-        
+          }
+
           joblocation {
             id
             name
           }
-       
         }
       }
     }
@@ -115,9 +112,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   const locationsWithCounts = countJobsInLocations(jobs.nodes);
   const yearsWithCounts = countJobsInYears(jobs.nodes);
   console.log({ yearsWithCounts });
-//// start filtering click events and animation timings
-
-
+  //// start filtering click events and animation timings
 
   let dropdownARef = useRef(null);
   let dropdownBRef = useRef(null);
@@ -125,9 +120,8 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   let refOutsideclickA = useRef(null);
 
   const animation = useRef(null);
-  const animationB = useRef(null);  
-  
- 
+  const animationB = useRef(null);
+
   const [selectedItemYears, setSelectedItemYears] = useState(activeYear);
   //end  drop down  ====  job years =========
   const [isOpenYears, setOpenYears] = useState(false);
@@ -170,12 +164,12 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   const handleItemClick = (id) => {
     selectedItem === id ? setSelectedItem(activeLocation) : setSelectedItem(id);
     setOpen(!isOpen);
-    
   };
   const handleItemClickYears = (id) => {
-    selectedItem === id ? setSelectedItemYears(activeYear) : setSelectedItemYears(id);
+    selectedItem === id
+      ? setSelectedItemYears(activeYear)
+      : setSelectedItemYears(id);
     setSelectedItemYears(!isOpenYears);
-
   };
 
   // gsap info: https://greensock.com/position-parameter/
@@ -184,7 +178,7 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   const toggleDropdownYears = (e) => {
     setOpenYears(!isOpenYears);
     // scrollTo('#some-id');
-  
+
     return false;
   };
 
@@ -198,15 +192,13 @@ export default function YearsFilter({ activeYear, activeLocation }) {
       //  keep false to not trigger global mouse event
       setOpen(false);
       // scrollTo('#some-id');
-   
     }
   };
 
   const handlemyExitDropdownB = (e) => {
     if (!refOutsideclickB.current.contains(e.target)) {
-        //  keep false to not trigger global mouse event
-      setOpenYears(false); 
-      
+      //  keep false to not trigger global mouse event
+      setOpenYears(false);
     }
   };
 
@@ -215,18 +207,15 @@ export default function YearsFilter({ activeYear, activeLocation }) {
   ////////// ==========================
 
   useEffect(() => {
- 
     animatedropdownA();
     if (animation.current.isActive()) {
       animation.current.restart();
     }
 
     document.addEventListener("click", handlemyExitDropdownA);
-    
+
     return () => {
       document.removeEventListener("click", handlemyExitDropdownA);
-      
-     
     };
   }, []);
 
@@ -261,122 +250,135 @@ export default function YearsFilter({ activeYear, activeLocation }) {
 
   return (
     <>
-  
-        {/* start grid */}
-        <nav role="navigation" aria-label="primary" >
-        <section className="filter__wrapper">  
-                   
-                              {/* start dropdown */}
-                          
-                              <div className="dropdown" ref={dropdownARef}  aria-label="filter by location" aria-expanded="false"   >
-                                <div
-                                  className="dropdown-header"
-                                  ref={refOutsideclickA}
-                                  onClick={toggleDropdownLocation} >
-                                  {selectedItem ? (
-                                    <span className="dropdown-header-status"  aria-label="filter location status" >{activeLocation}</span>
-                                  ) : (
-                                    "View all Locations"
-                                  )}
-                                  <svg
-                                    xmlns="https://www.w3.org/2000/svg"
-                                    className={`  icon ${isOpen && "open"}`}
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M19 9l-7 7-7-7"
-                                    />
-                                  </svg>
-                                </div>
+      {/* start grid */}
+      <nav role="navigation" aria-label="primary">
+        <section className="filter__wrapper">
+          {/* start dropdown */}
 
-                                <div className={`nav__categories   ${isOpen}`}>
-                                  <Link
-                                    to="/"
-                                    className="nav__categories__link"
-                                    
-                                  >
-                                    <span className="copy__cat">show me all Locations</span>
-                                    <span className="copy__cat">
-                                      {" "}
-                                      ( {joblocation.nodes.length} )
-                                    </span>
-                                  </Link>
+          <div
+            className="dropdown"
+            ref={dropdownARef}
+            aria-label="filter by location"
+            aria-expanded="false"
+          >
+            <div
+              className="dropdown-header"
+              ref={refOutsideclickA}
+              onClick={toggleDropdownLocation}
+            >
+              {selectedItem ? (
+                <span
+                  className="dropdown-header-status"
+                  aria-label="filter location status"
+                >
+                  {activeLocation}
+                </span>
+              ) : (
+                "View all Locations"
+              )}
+              <svg
+                xmlns="https://www.w3.org/2000/svg"
+                className={`  icon ${isOpen && "open"}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
 
-                                  {locationsWithCounts.map((location) => (
-                                    <Link
-                                      to={`/location/${location.name}`}
-                                      key={location.id}
-                                      className="nav__categories__link"
-                                      title={`${location.name} `}
-                                    >
-                                      <span className="copy__cat">{location.name} </span>
+            <div className={`nav__categories   ${isOpen}`}>
+              <Link to="/" className="nav__categories__link">
+                <span className="copy__cat">show me all Locations</span>
+                <span className="copy__cat">
+                  {" "}
+                  ( {joblocation.nodes.length} )
+                </span>
+              </Link>
 
-                                      <span className="copy__cat"> ( {location.count} )</span>
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
+              {locationsWithCounts.map((location) => (
+                <Link
+                  to={`/location/${location.name}`}
+                  key={location.id}
+                  className="nav__categories__link"
+                  title={`${location.name} `}
+                >
+                  <span className="copy__cat">{location.name} </span>
 
-                                  {/* start dropdown */}
-                            <div className="dropdown" ref={dropdownBRef}  aria-label="filter by year" aria-expanded="false" >
-                              <div
-                                className="dropdown-header" aria-label="filter year status"
-                                ref={refOutsideclickB}
-                                onClick={toggleDropdownYears} >
-                                {selectedItemYears ? (
-                                  <span className="dropdown-header-status">{activeYear}</span>
-                                ) : (
-                                  "filter by years"
-                                )}
-                                <svg
-                                  xmlns="https://www.w3.org/2000/svg"
-                                  className={` icon ${isOpenYears && "open"}`}
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M19 9l-7 7-7-7"
-                                  />
-                                </svg>
-                              </div>
+                  <span className="copy__cat"> ( {location.count} )</span>
+                </Link>
+              ))}
+            </div>
+          </div>
 
-                              <div className={`nav__categories  ${isOpenYears && "open"}`}>
-                                <Link to="/" className="nav__categories__link">
-                                  <span className="copy__cat">view all years</span>
-                                  {/* <span className="copy__cat"> ( {jobs.nodes.length} )</span> */}
-                                </Link>
+          {/* start dropdown */}
+          <div
+            className="dropdown"
+            ref={dropdownBRef}
+            aria-label="filter by year"
+            aria-expanded="false"
+          >
+            <div
+              className="dropdown-header"
+              aria-label="filter year status"
+              ref={refOutsideclickB}
+              onClick={toggleDropdownYears}
+            >
+              {selectedItemYears ? (
+                <span className="dropdown-header-status">{activeYear}</span>
+              ) : (
+                "filter by years"
+              )}
+              <svg
+                xmlns="https://www.w3.org/2000/svg"
+                className={` icon ${isOpenYears && "open"}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
 
-                                {yearsWithCounts
-                                .sort(({ name: previousYear }, { name: currentYear }) =>  currentYear - previousYear) 
-                                .map((year) => (
-                                  <Link
-                                    to={`/year/${year.name}`}
-                                    key={year.id}
-                                    className="nav__categories__link"
-                                    title={`${year.name} `}
-                                  >
-                                    <span className="copy__cat">{year.name} </span>
-                                    {/* <span className="copy__cat"> ( {year.count} )</span> */}
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                              {/* close dropdown */}
-                           
-                            {/* close grid */}
-                </section>
-                </nav>
-   
-    
+            <div className={`nav__categories  ${isOpenYears && "open"}`}>
+              <Link to="/" className="nav__categories__link">
+                <span className="copy__cat">view all years</span>
+                {/* <span className="copy__cat"> ( {jobs.nodes.length} )</span> */}
+              </Link>
+
+              {yearsWithCounts
+                .sort(
+                  ({ name: previousYear }, { name: currentYear }) =>
+                    currentYear - previousYear
+                )
+                .map((year) => (
+                  <Link
+                    to={`/year/${year.name}`}
+                    key={year.id}
+                    className="nav__categories__link"
+                    title={`${year.name} `}
+                  >
+                    <span className="copy__cat">{year.name} </span>
+                    {/* <span className="copy__cat"> ( {year.count} )</span> */}
+                  </Link>
+                ))}
+            </div>
+          </div>
+          {/* close dropdown */}
+
+          {/* close grid */}
+        </section>
+      </nav>
     </>
 
     // end
