@@ -474,7 +474,7 @@ visibility: hidden;
     background: transparent;
     border: 0;
     cursor: pointer;
-   
+    top: 0;
     @extend .copy__headerinfo-text;
     gap: 0.5rem; 
     svg{ 
