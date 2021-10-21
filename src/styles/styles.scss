@@ -464,6 +464,7 @@ visibility: hidden;
 // ======================
 
 .header__wrapper {
+  top: 0;
   .resumelink {
     text-transform: none;
     width: fit-content;
@@ -474,7 +475,7 @@ visibility: hidden;
     background: transparent;
     border: 0;
     cursor: pointer;
-    top: 0;
+
     @extend .copy__headerinfo-text;
     gap: 0.5rem; 
     svg{ 
