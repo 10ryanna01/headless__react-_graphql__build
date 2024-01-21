@@ -1,10 +1,7 @@
-import React from "react";  
-import profileImg from '../images/profile.png';
+import React from "react";
+import profileImg from "../images/profile.png";
 
-export default function PageHeader({
- 
-}) {
-  
+export default function PageHeader({}) {
   return (
     <>
       <header className="header__wrapper">
@@ -15,15 +12,19 @@ export default function PageHeader({
             <p className="header__headshot">
               <img
                 src={profileImg}
-                className="header__headshot__img" 
-                width="100%" height="100%" alt="Profile Photo of Meee"
+                className="header__headshot__img"
+                width="100%"
+                height="100%"
+                alt="Profile Photo of Meee"
               />
 
               <a
                 href="https://www.insightsurfer.net/RyannAllahiqCV.pdf"
                 className="resumelink header__contact__social__link "
                 title="Download My Resume (PDF)"
-                target="_blank" rel="noopener noreferrer" aria-label="Download My Resume (PDF)"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download My Resume (PDF)"
               >
                 grab my Resume
                 <svg
@@ -47,7 +48,9 @@ export default function PageHeader({
             <div className="header__summary">
               <h1 className="copy__headerinfo-text">ryann al-lahiq</h1>
 
-              <h2 className="copy__headerinfo-text">experienced Front-End Developer</h2>
+              <h2 className="copy__headerinfo-text">
+                experienced Front-End Developer
+              </h2>
 
               <h3 className="copy__headerinfo-text">based in London, UK</h3>
               <div className="header__contact__social">
@@ -55,7 +58,8 @@ export default function PageHeader({
                   href="https://uk.linkedin.com/in/ryannwithtwons"
                   title="Get In Touch On My LinkedIn"
                   target="_blank"
-                  className="header__contact__social__link" rel="noopener noreferrer"
+                  className="header__contact__social__link"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -70,9 +74,10 @@ export default function PageHeader({
                 </a>
 
                 <a
-                  href="https://github.com/10ryanna01/headless__react-_graphql__build"
+                  href="https://github.com/10ryanna01"
                   title="Checkout This Build On My Github"
-                  className="header__contact__social__link" rel="noopener noreferrer"
+                  className="header__contact__social__link"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -89,8 +94,9 @@ export default function PageHeader({
                 <a
                   href="https://open.spotify.com/playlist/5XwD3GdQDrsoYiQC43SDXZ"
                   title="Coding Music Playlist || Music To Code To"
-                  target="_blank" rel="noopener noreferrer"
-                  className="header__contact__social__link" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="header__contact__social__link"
                 >
                   <svg
                     version="1.1"
@@ -141,7 +147,7 @@ export default function PageHeader({
                 </a>
               </div>
             </div>
-          </section> 
+          </section>
         </div>
       </header>
     </>
