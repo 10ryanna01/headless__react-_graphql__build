@@ -19,7 +19,7 @@ export default function PageHeader({}) {
               />
 
               <a
-                href="https://www.insightsurfer.net/RyannAllahiqCV.pdf"
+                href="https://drive.google.com/file/d/1HLK7wWs4dCCQtbOQHRapSoq81149VDJv/view"
                 className="resumelink header__contact__social__link "
                 title="Download My Resume (PDF)"
                 target="_blank"
