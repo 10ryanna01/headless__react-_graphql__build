@@ -3,6 +3,8 @@
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
   </a>
 </p>
+ 
+##🎉🥳 [See it live](https://insightsurfer.netlify.app/)
 <h1 align="center">
 
 react gatsby build with sanitycms data feed
