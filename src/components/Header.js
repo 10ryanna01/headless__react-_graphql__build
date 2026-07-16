@@ -19,7 +19,7 @@ export default function PageHeader({}) {
               />
 
               <a
-                href="https://drive.google.com/file/d/1HLK7wWs4dCCQtbOQHRapSoq81149VDJv/view"
+                href="https://drive.google.com/file/d/1n3aB6KOhvxy4sluqqFJ7v6GmkkLU4DC7/view"
                 className="resumelink header__contact__social__link "
                 title="Download My Resume (PDF)"
                 target="_blank"
